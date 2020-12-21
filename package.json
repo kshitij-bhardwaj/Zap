@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/kshitij-bhardwaj/Zap/issues"
   },
-  "homepage": "https://github.com/kshitij-bhardwaj/Zap#readme"
+  "homepage": "https://github.com/kshitij-bhardwaj/Zap#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "got": "^11.8.1"
+  }
 }
-
