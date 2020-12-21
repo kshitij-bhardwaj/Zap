@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
   module.exports.run(client, message, args) => {
-    const snipes = client.snipes.get(message.channel.id) || [];
-    const msg = snipes[args[0] - 1 || 0];
-    if (!msg) return message.channel.send(`That is not a valid snipe...`);
+    const snitches = client.snipes.get(message.channel.id) || [];
+    const msg = snitches[args[0] - 1 || 0];
+    if (!msg) return message.channel.send(`What do I snitch?`);
     const Embed = new MessageEmbed()
       .setAuthor(
         msg.author.tag,
@@ -15,8 +15,8 @@ const { MessageEmbed } = require("discord.js");
   },
 };
 module.exports = {
-  name: "snipe",
-  description: "Just snipe",
-  usage: "snipe <number>",
+  name: "snitch",
+  description: "Just snitch a deleted message",
+  usage: "snitch <number>",
   category: "fun"
 }
