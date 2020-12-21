@@ -27,7 +27,9 @@ module.exports.run = async (bot, message, args) => {
 		.catch(console.error);
 };
 
-module.exports.config = {
-	name: 'meme',
-	aliases: [],
-};
+exports.help = {
+    type: "fun",
+    name: "meme",
+    description: "Generates a random meme",
+    usage: "zap meme",
+}
