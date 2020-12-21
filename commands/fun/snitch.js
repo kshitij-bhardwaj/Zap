@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-  module.exports.run(client, message, args) => {
+module.exports.run = async (bot, message, args) => {
     const snitches = client.snipes.get(message.channel.id) || [];
     const msg = snitches[args[0] - 1 || 0];
     if (!msg) return message.channel.send(`What do I snitch?`);
