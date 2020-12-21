@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 exports.run = (client, message, args) => {
        
     String.prototype.embedify = function() {
-        return new Discord.RichEmbed().setColor(client.config.embedColor).setDescription(this)
+        return new Discord.MessageEmbed().setColor(#ffccdd).setDescription(this)
     }
     
     let snipe = client.snipeMap.get(message.guild.id)
@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
         let image = snipe[args[1] - 1]
         if(!image[1]) return message.channel.send('That message does not have an attached (deleted) image!'.embedify())
         console.log(image[1])
-        return message.channel.send(new Discord.RichEmbed().setColor(client.config.embedColor).setImage(image[1]))
+        return message.channel.send(new Discord.MessageEmbed().setColor(client.config.embedColor).setImage(image[1]))
     }
 
     let counter = 0
@@ -24,6 +24,6 @@ exports.run = (client, message, args) => {
 exports.help = {
     type: "fun",
     name: "snitch",
-    description: "The `snitch` command is just the snitch command, idk what it does.",
+    description: "The `snitch` command snitches the lastly deleted message.",
     usage: "`zap snitch`"
 }
