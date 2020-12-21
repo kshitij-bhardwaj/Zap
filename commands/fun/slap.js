@@ -10,7 +10,7 @@ module.exports.run = (client, message, args) => {
     if (!personslap) {
         let personslap = 'Air';
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just slapped ${personslap}!`)
             .setImage(slapgif)
             .setColor(client.config.embedColor);
@@ -21,7 +21,7 @@ module.exports.run = (client, message, args) => {
 
     if (personslap.id === message.author.id) {
         let personslap = 'Themselvess';
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setDescription(`**<@${message.author.id}> just slapped ${personslap}! `)
             .addField(`${quotrand}`,'',no)
             .setImage(slapgif)
@@ -33,7 +33,7 @@ module.exports.run = (client, message, args) => {
 
     if (personslap.id === client.user.id) {
         let personslap = 'Me, God damn u';
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just slapped ${personslap}!`)
             .setImage(slapgif)
             .setColor(client.config.embedColor);
@@ -42,7 +42,7 @@ module.exports.run = (client, message, args) => {
         return;
     }
 
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
         .setDescription(`**<@${message.author.id}> just slapped ${personslap}! ${quoter}!**`)
         .setImage(slapgif)
         .setColor(client.config.embedColor);
