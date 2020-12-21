@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
 
         let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just poked ${personPoke}!`)
-            .addField(`${quoterand}`,'',no)
+            .addField(`${quoterand}`,'',false)
             .setImage(pokesrand)
             .setColor(`GREEN`);
 
@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
         .setDescription(`<@${message.author.id}> just poked ${personPoke}!`)
-        .addField(`${quoterand}`,'',no)
+        .addField(`${quoterand}`,'',false)
         .setImage(pokesrand)
         .setColor(`GREEN`);
 
