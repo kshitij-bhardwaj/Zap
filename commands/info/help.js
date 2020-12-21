@@ -10,6 +10,5 @@ const embed = new Discord.MessageEmbed()
 .setColor(0x00AE86)
  .setTimestamp()
  .setFooter("Zap Help!");
- 
-          
-          }
+message.channel.send(embed);        
+}
