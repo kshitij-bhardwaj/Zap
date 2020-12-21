@@ -35,8 +35,9 @@ module.exports.run = async (bot, message, args) => {
   };
   
   
-  module.exports.help = {
-    name:"beg",
-    description:"Begs for money"
-    aliases: [""]
-  }
+exports.help = {
+    type: "economy",
+    name: "beg",
+    description: "Beg for money!!",
+    usage: "zap beg",
+}
