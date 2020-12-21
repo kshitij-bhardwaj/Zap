@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-modules.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
     let slapgiphy = ['https://i.imgur.com/4iPCfVO.gif', 'https://i.imgur.com/8g6t0a3.gif', 'https://i.imgur.com/u7bKmq0.gif', 'https://i.imgur.com/v1u3DpJ.gif', 'https://i.imgur.com/T7npUHy.gif', 'https://i.imgur.com/rDSHdbw.gif', 'https://i.imgur.com/VtbV4HW.gif', 'https://i.imgur.com/lzc81Yw.gif', 'https://i.imgur.com/MnfAJbs.gif'];
     let slapgif = slapgiphy[Math.floor(Math.random() * slaps.length)];
     let personslap = message.mentions.members.first();
