@@ -4,8 +4,6 @@ const got = require('got');
 
 module.exports.run = async (bot, message, args) => {
 	const embed = new Discord.MessageEmbed();
-const msgbub = client.emojis.cache.get("790510910266671114");
-const like = client.emojis.cache.get("790510205502619678");
 	got('https://www.reddit.com/r/memes/random/.json')
 		.then(response => {
 			const [list] = JSON.parse(response.body);
@@ -22,7 +20,7 @@ const like = client.emojis.cache.get("790510205502619678");
 			embed.setURL(`${memeUrl}`);
 			embed.setColor('RANDOM');
 			embed.setImage(memeImage);
-			embed.setFooter(`${like} ${memeUpvotes} ${msgbub} ${memeNumComments}`);
+			embed.addField('Stats',`<a:thumbsupParrot:790510205502619678> ${memeUpvotes} <a:speech_bubble_heart:790510910266671114> ${memeNumComments}`,false);
 
 			message.channel.send(embed);
 		})
