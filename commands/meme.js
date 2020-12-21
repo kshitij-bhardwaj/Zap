@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 			embed.setURL(`${memeUrl}`);
 			embed.setColor('RANDOM');
 			embed.setImage(memeImage);
-			embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}`);
+			embed.setFooter(`<a:thumbsupParrot:790510205502619678> ${memeUpvotes} <a:speech_bubble_heart:790510910266671114> ${memeNumComments}`);
 
 			message.channel.send(embed);
 		})
