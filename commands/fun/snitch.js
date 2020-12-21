@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
         return new Discord.MessageEmbed().setColor(#ffccdd).setDescription(this)
     }
     
-    let snipe = client.snipeMap.get(message.guild.id)
+    let snipe = client.snipeMap.cache.find(message.guild.id)
     if(!snipe) return message.channel.send('There\'s nothing to snitch'.embedify())
 
     if(args[0] == 'image') {
