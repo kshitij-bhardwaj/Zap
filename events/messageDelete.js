@@ -18,3 +18,7 @@ module.exports = async (message) => {
     });
     snipes.splice(10);
     message.client.snipes.set(message.channel.id, snipes);
+  
+  };
+    
+  };
