@@ -43,7 +43,7 @@ module.exports.run = (client, message, args) => {
     }
 
     let embed = new Discord.MessageEmbed()
-        .setDescription(`**<@${message.author.id}> just slapped ${personslap}! ${quoter}!**`)
+        .setDescription(`**<@${message.author.id}> just slapped ${personslap}! ${quotrand}!**`)
         .setImage(slapgif)
         .setColor(client.config.embedColor);
 
