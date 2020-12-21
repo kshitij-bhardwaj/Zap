@@ -19,5 +19,9 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "got": "^11.8.1"
+  },
+  "dependencies": {
+    "@quantiom/pagemenu": "^2.0.7",
+    "quick.db": "7.1.3"
   }
 }
