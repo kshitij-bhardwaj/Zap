@@ -7,6 +7,7 @@ const walk = require("walk");
 
 const config = require("./config.json");
 const client = new Discord.Client();
+
 client.config = config;
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -19,6 +20,7 @@ fs.readdir("./events/", (err, files) => {
 });
 client.commands = new Discord.Collection();
 client.categories = new Discord.Collection();
+client.snipes = new Discord.Collection();
 
 const walker = walk.walk("./commands");
 walker.on("file", function (root, stats, next) {
