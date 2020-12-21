@@ -9,6 +9,8 @@ module.exports.run = async (bot, message, args) => {
     let timeout = 600000;
     let amountrand = [5,10,15,20,25,30];
     let amount = amountrand[Math.floor(Math.random() * amountrand.length)];
+    let altrusit = ["Taylor Swift", "Carl Johnson", "Joe Biden", "Spongebob", "Goku", "Kira", "Franklin", "OnePunchMan", "Your mother"];
+    let altrusitvalue = altrusit[Math.floor(Math.random() * altrusit.length)];
     let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
   
     if (beg !== null && timeout - (Date.now() - beg) > 0) {
@@ -21,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
       let moneyEmbed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
-    .setDescription(`<a:Coin:790532957705994240>  and received \`${amount}\` coins`);
+    .setDescription(`<a:Coin:790532957705994240> **${altrusitvalue}** gave you \`${amount}\` coins`);
     message.channel.send(moneyEmbed)
     db.add(`money_${message.guild.id}_${user.id}`, amount)
     db.set(`beg_${message.guild.id}_${user.id}`, Date.now())
