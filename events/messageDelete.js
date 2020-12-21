@@ -1,24 +1,35 @@
 //dude this freaking code is only for snipes
 
-const { MessageEmbed } = require("discord.js");
-module.exports = async (message) => {
-  try {
-    if (message.author.bot) return;
-    const snipes = message.client.snipes.get(message.channel.id) || [];
-    snipes.unshift({
-      content: message.content,
-      author: message.author,
-      image: message.attachments.first()
-        ? message.attachments.first().proxyURL
-        : null,
-      date: new Date().toLocaleString("en-GB", {
-        dataStyle: "full",
-        timeStyle: "short",
-      }),
-    });
-    snipes.splice(10);
-    message.client.snipes.set(message.channel.id, snipes);
-  
-  };
-    
-  };
+module.exports = (client, message) => {
+
+    let image = message.attachments.size > 0 ? extension(message.attachments.array()[0].proxyURL) : false
+
+    message.content.replace('\n', '')
+
+    if(message.content.length > 200) {
+        message.content = message.content.slice(0, 200) + ' ...'
+    }
+
+    let snipe = client.snipeMap.get(message.guild.id)
+
+    if(!snipe) {
+        client.snipeMap.set(message.guild.id, [[message, image]])
+    } else {
+        if(snipe.length >= 5) {
+            client.snipeMap.get(message.guild.id).pop()
+            client.snipeMap.get(message.guild.id).unshift([message, image])
+        } else {
+            client.snipeMap.get(message.guild.id).unshift([message, image])
+        }
+    }
+
+
+
+    function extension(attachment) {
+        const imageLink = attachment.split('.')
+        const typeOfImage = imageLink[imageLink.length - 1]
+        const image = /(jpg|jpeg|png|gif)/gi.test(typeOfImage)
+        if(!image) return ''
+        return attachment
+    }
+}
