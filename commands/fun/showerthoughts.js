@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
 exports.help = {
     type: "fun",
-    name: "meme",
+    name: "showerthoughts",
     description: "Generates a random thought from r/showerthoughts",
     usage: "zap showerthoughts",
 }
