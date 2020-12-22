@@ -1,3 +1,4 @@
+
 let Discord = require('discord.js');
 
 module.exports.run =(client, message) => {
@@ -54,16 +55,16 @@ module.exports.run =(client, message) => {
                     const embed = new Discord.MessageEmbed()
                     .setTitle(`${prize}`)
                     .setColor('36393F')
-                    .setDescription(`React with 🎉 to enter!\nTime duration: **${stated_duration_hours3}** ${time2}${time3}\nHosted by: ${message.author}`)
+                    .setDescription(`React with <a:tick:790910119515783168> to enter!\nTime duration: **${stated_duration_hours3}** ${time2}${time3}\nHosted by: ${message.author}`)
                     .setTimestamp(Date.now() + (actual_duration_hours))
                     .setFooter('Ends at')
-                    let msg = await message.channel.send(':tada: **GIVEAWAY** :tada:', embed)
-                    await msg.react('🎉')
+                    let msg = await message.channel.send('<a:mysticAnimated:790911237902172161> **GIVEAWAY** <a:mysticAnimated:790911237902172161>', embed)
+                    await msg.react('<a:tick:790910119515783168>')
                     setTimeout(() => {
-                        msg.reactions.cache.get('🎉').users.remove(client.user.id)
+                        msg.reactions.cache.get('<a:tick:790910119515783168>').users.remove(client.user.id)
                         setTimeout(() => {
-                            let winner = msg.reactions.cache.get('🎉').users.cache.random();
-                            if (msg.reactions.cache.get('🎉').users.cache.size < 1) {
+                            let winner = msg.reactions.cache.get('<a:tick:790910119515783168>').users.cache.random();
+                            if (msg.reactions.cache.get('<a:tick:790910119515783168>').users.cache.size < 1) {
                                 const winner_embed = new Discord.MessageEmbed()
                                 .setTitle(`${prize}`)
                                 .setColor('36393F')
@@ -72,7 +73,7 @@ module.exports.run =(client, message) => {
                                 .setFooter('Ended at')
                                 msg.edit(':tada: **GIVEAWAY ENDED** :tada:', winner_embed);
                             }
-                            if (!msg.reactions.cache.get('🎉').users.cache.size < 1) {
+                            if (!msg.reactions.cache.get('<a:tick:790910119515783168>').users.cache.size < 1) {
                                 const winner_embed = new Discord.MessageEmbed()
                                 .setTitle(`${prize}`)
                                 .setColor('36393F')
