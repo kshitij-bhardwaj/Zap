@@ -7,8 +7,8 @@ module.exports.run =(client, message) ={
             var time = '';
             var time2 = '';
             var time3 = '';
-            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You don\'t have enough permissions to use this command.');
-            if (message.content.split(' ')[1] === '') return messages.channel.send('Please enter a duration for the giveaway (in hours).');
+            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You aint powerful');
+            if (message.content.split(' ')[1] === '') return messages.channel.send('Duration must be in hours');
             const stated_duration_hours = message.content.split(' ')[1];
             const stated_duration_hours2 = stated_duration_hours.toLowerCase();
             if (stated_duration_hours2.includes('s')) {
