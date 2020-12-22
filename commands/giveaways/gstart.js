@@ -80,7 +80,7 @@ module.exports.run =(client, message) => {
                                 .setDescription(`Winner:\n${winner}\nHosted by: ${message.author}`)
                                 .setTimestamp()
                                 .setFooter('Ended at')
-                                msg.edit(':tada: **GIVEAWAY ENDED** :tada:', winner_embed);
+                                msg.edit('<a:mysticAnimated:790911237902172161> **GIVEAWAY ENDED** <a:mysticAnimated:790911237902172161>', winner_embed);
                             }
                         }, 1000);
                     }, actual_duration_hours);
