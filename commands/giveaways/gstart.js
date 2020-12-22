@@ -71,7 +71,7 @@ module.exports.run =(client, message) => {
                                 .setDescription(`Winner:\nNo one entered the giveaway.\nHosted by: ${message.author}`)
                                 .setTimestamp()
                                 .setFooter('Ended at')
-                                msg.edit(':tada: **GIVEAWAY ENDED** :tada:', winner_embed);
+                                msg.edit('<a:mysticAnimated:790911237902172161> **GIVEAWAY ENDED** <a:mysticAnimated:790911237902172161>', winner_embed);
                             }
                             if (!msg.reactions.cache.get('<a:tick:790910119515783168>').users.cache.size < 1) {
                                 const winner_embed = new Discord.MessageEmbed()
