@@ -9,8 +9,19 @@ Then why not bring the bot to your server, [here]() is the link to it!
 
 ### Commands
 
+**Prefix is zap.**```Example: zap meme```
+
 | Commands      | Functions     |
 | ------------- | ------------- |
 | slap          | Slaps the mentioned user|
 | poke          | Pokes the mentioned user|
-  
+| meme          | Generates a random meme |
+| dank          | Generates a random meme from r/dankmemes |
+| wholesome     | Generates a random meme from r/wholesomememes|
+| showerthoughts| Generates a random thought |
+| help          | Self-explainatory          |
+| botinfo       | Self-explainatory          |
+| randomcat     | Generates a random cat image|
+| beg           | Begs for money              |
+| bal           | Check your balance          |
+| work          | Work as something for money |
