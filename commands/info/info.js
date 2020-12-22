@@ -19,7 +19,7 @@ let seconds = Math.floor(totalSeconds % 60);
               
                 content: new MessageEmbed({
                     title: '**Bot Information**',
-                    description: `**Serveing** \n ${client.guids.cache.size} servers with ${client.channels.cache.size} channels and ${client.users.cache.size} users. \n **Uptime** \n ${days}:${hours}:${minutes}:${seconds}\n **Ping** \n Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms\n This bot was made by Tensor Calculus Mistakes#1729 and Adonis#5927, deemed to increas the expierence of users on discord to a better level! `
+                    description: `**Serveing** \n ${client.guilds.cache.size} servers with ${client.channels.cache.size} channels and ${client.users.cache.size} users. \n **Uptime** \n ${days}:${hours}:${minutes}:${seconds}\n **Ping** \n Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms\n This bot was made by Tensor Calculus Mistakes#1729 and Adonis#5927, deemed to increas the expierence of users on discord to a better level! `
                 }),
                 reactions: {
                     '⏹': 'delete',
