@@ -1,10 +1,7 @@
 
 let Discord = require('discord.js');
 
-module.exports = {
-    name: 'gstart',
-    execute(client, message){
-        if (!message.guild) return;
+module.exports.run =(client, message) ={
         async function giveaway() {
             var time = '';
             var time2 = '';
@@ -92,4 +89,4 @@ module.exports = {
         }
         giveaway();
     }
-}
+
