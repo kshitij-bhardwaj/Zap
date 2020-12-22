@@ -1,15 +1,13 @@
-
 let Discord = require('discord.js');
 
-module.exports.run =(client, message) ={
-        if (!message.guild) return;
+module.exports.run =(client, message) => {
         async function giveaway() {
             var time = '';
             var time2 = '';
             var time3 = '';
-            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You aint powerful');
-            if (message.content.split(' ')[1] === '') return messages.channel.send('Duration must be in hours');
-            const stated_duration_hours = message.content.split(' ')[1];
+            if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You must have atleast administrative permissions to use this command, lol');
+            if (message.content.split(' ')[1] === '') return messages.channel.send('Please enter a duration for the giveaway (in hours).');
+            const stated_duration_hours = message.content.split(" ")[2];
             const stated_duration_hours2 = stated_duration_hours.toLowerCase();
             if (stated_duration_hours2.includes('s')) {
                 var time = 's';
@@ -25,10 +23,10 @@ module.exports.run =(client, message) ={
             }
             const stated_duration_hours3 = stated_duration_hours2.replace(time, '');
             if (stated_duration_hours3 === '0') {
-                message.channel.send('The duration has to be atleast one.');
+                message.channel.send('Yo dude, what?!?');
             }
             if (isNaN(stated_duration_hours3)) {
-                message.channel.send('The duration has to be a number.');
+                message.channel.send('Dude...oof..');
             }
             if (stated_duration_hours3 > 1) {
                 var time3 = 's';
@@ -50,7 +48,7 @@ module.exports.run =(client, message) ={
                 var time2 = 'day';
             }
             const prize = message.content.split(' ').slice(2).join(' ');
-            if (prize === '') return message.channel.send('You have to enter a price.');
+            if (prize === '') return message.channel.send('You want to give **air** as prize?');
             if (!isNaN(stated_duration_hours3)) {
                 if (stated_duration_hours3 !== '0') {
                     const embed = new Discord.MessageEmbed()
@@ -89,5 +87,4 @@ module.exports.run =(client, message) ={
             }
         }
         giveaway();
-    }
-
+}
