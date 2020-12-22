@@ -24,4 +24,5 @@ Then why not bring the bot to your server, [here]() is the link to it!
 | randomcat     | Generates a random cat image|
 | beg           | Begs for money              |
 | bal           | Check your balance          |
-| work          | Work as something for money |
+| work          | Work as something for money  |
+ | randomdog    | Generates a random dog image  |
