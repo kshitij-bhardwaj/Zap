@@ -4,7 +4,7 @@ const { Client, MessageEmbed  } = require("discord.js");
 const {  Aki  } = require("aki-api");
 const emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"];
 const Started = new Set();
-module.exports.run =(message, args) => {
+module.exports.run = aysnc (message, args) => {
 if(!Started.has(message.author.id))Started.add(message.author.id);
 else return message.channel.send("**:x: | The game already started..**");
  const aki = new Aki("ar");
