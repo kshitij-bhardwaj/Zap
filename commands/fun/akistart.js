@@ -1,13 +1,13 @@
-//This is for akinator, oof!
 
-const { Client, MessageEmbed  } = require("discord.js");
+const { Client, MessageEmbed, Message  } = require("discord.js");
 const {  Aki  } = require("aki-api");
 const emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"];
 const Started = new Set();
-module.exports.run = aysnc (message, args) => {
-if(!Started.has(message.author.id))Started.add(message.author.id);
+module.exports.run = async (bot, message, args) => {
+let user= message.author;
+if(!Started.has(user.id)) Started.add(user.id);
 else return message.channel.send("**:x: | The game already started..**");
- const aki = new Aki("ar");
+ const aki = new Aki("en");
  await aki.start();
  const msg = await message.channel.send(new MessageEmbed()
                                        .setTitle(`${message.author.username}, Question ${aki.currentStep + 1}`)
@@ -53,4 +53,4 @@ response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"]
   
 collector.on("end",()=>{ Started.delete(message.author.id);
                          msg.delete({ timeout: 1000 }).catch(()=>{});
-                       });   
+                       });}   
