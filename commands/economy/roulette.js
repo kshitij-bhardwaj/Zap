@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 const ms = require("parse-ms");
 
-module.exports.run = async (bot, message, args) => {  
+module.exports.run = async (client, message, args) => {  
 
   let user = message.author;
 
@@ -19,15 +19,15 @@ let random = Math.floor(Math.random() * 37);
 
 let moneyhelp = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:790889592395792404> Specify an amount to gamble | zap roulette <color> <amount>`);
+.setDescription(`<a:no:791738978180399114> Specify an amount to gamble | ${client.config.prefix} roulette <color> <amount>`);
 
 let moneymore = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:790889592395792404> You are betting more than you have`);
+.setDescription(`<a:no:791738978180399114> You are betting more than you have`);
 
 let colorbad = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:790889592395792404> Specify a color | Red [1.5x] Black [2x] Green [15x]`);
+.setDescription(`<a:no:791738978180399114> Specify a color | Red🔴 [1.5x] Black⚫ [2x] Green🟢 [15x]`);
 
 
     if (!colour)  return message.channel.send(colorbad);
@@ -47,28 +47,28 @@ let colorbad = new Discord.MessageEmbed()
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed1 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:Green:618767721361833995> You won ${money} coins\n\nMultiplier: 15x`);
+        .setDescription(`🟢 You won ${money} coins\n\nMultiplier: 15x`);
         message.channel.send(moneyEmbed1)
         console.log(`${message.author.tag} Won ${money} on green`)
     } else if (isOdd(random) && colour == 1) { // Red
         money = parseInt(money * 1.5)
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed2 = new Discord.MessageEmbed()
-        .setColor(`DARK_VIVID_PINK`)
-        .setDescription(`<a:Red:618767705444450342> You won ${money} coins\n\nMultiplier: 1.5x`);
+        .setColor(`RED`)
+        .setDescription(`🔴 You won ${money} coins\n\nMultiplier: 1.5x`);
         message.channel.send(moneyEmbed2)
     } else if (!isOdd(random) && colour == 0) { // Black
         money = parseInt(money * 2)
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed3 = new Discord.MessageEmbed()
         .setColor("#FFFFFF")
-        .setDescription(`<a:Black:618767682996666408> You won ${money} coins\n\nMultiplier: 2x`);
+        .setDescription(`⚫ You won ${money} coins\n\nMultiplier: 2x`);
         message.channel.send(moneyEmbed3)
     } else { // Wrong
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed4 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You lost ${money} coins\n\nMultiplier: 0x`);
+        .setDescription(`<a:no:791738978180399114> You lost ${money} coins\n\nMultiplier: 0x`);
         message.channel.send(moneyEmbed4)
     }
 }

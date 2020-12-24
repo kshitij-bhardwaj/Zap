@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, utils) => {
 
   let moneyEmbed = new Discord.MessageEmbed()
   .setColor(`GREEN`)
-  .setDescription(`<a:My_best_verified:790894580643397653>**${user}'s Balance**\n\nWallet: ${bal}\nBank: ${bank}`);
+  .setDescription(`<a:My_best_verified:787883034963476491>**${user}'s Balance**\n\nWallet: ${bal}\nBank: ${bank}`);
   message.channel.send(moneyEmbed)
 };
 

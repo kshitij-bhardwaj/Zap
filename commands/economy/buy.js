@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     let Embed = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:790889592395792404> You need ${3500 - author} coins to purchase Bronze VIP`);
+    .setDescription(`<a:no:791738978180399114> You need ${3500 - author} coins to purchase Bronze VIP`);
 
     if (args[0] == 'bronze') {
         if (author < 3500) return message.channel.send(Embed)
@@ -18,11 +18,12 @@ module.exports.run = async (bot, message, args) => {
 
         let Embed2 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> Purchased Bronze VIP For 3500 Coins`);
+        .setDescription(`<a:My_best_verified:787883034963476491> Purchased Bronze VIP For 3500 Coins`);
 
         db.subtract(`money_${message.guild.id}_${user.id}`, 3500)
         message.channel.send(Embed2)
-    } else if(args[0] == 'nikes') {
+    } 
+    /**else if(args[0] == 'nikes') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor(`RED`)
         .setDescription(`<a:no:790889592395792404> You need ${600 - author} coins to purchase some Nikes`);
@@ -70,10 +71,11 @@ module.exports.run = async (bot, message, args) => {
 
         db.subtract(`money_${message.guild.id}_${user.id}`, 1200)
         message.channel.send(Embed3)
-    } else {
+        */
+        else {
         let embed3 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription('<a:no:790889592395792404> Enter an item to buy')
+        .setDescription('<a:no:791738978180399114> Enter an item to buy')
         message.channel.send(embed3)
     }
 

@@ -19,12 +19,12 @@ module.exports.run = async (bot, message, args) => {
     
       let timeEmbed = new Discord.MessageEmbed()
       .setColor(`RED`)
-      .setDescription(`<a:sgTRIGGERED:790535691145576459> ${blockedvalue} \n\nBeg again in ${time.minutes}m ${time.seconds}s `);
+      .setDescription(`<a:no:791738978180399114> ${blockedvalue} \n\nBeg again in ${time.minutes}m ${time.seconds}s `);
       message.channel.send(timeEmbed)
     } else {
       let moneyEmbed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
-    .setDescription(`<a:Coin:790532957705994240> **${altrusitvalue}** gave you \`${amount}\` coins`);
+    .setDescription(`<a:Coin:791741559506337832> **${altrusitvalue}** gave you \`${amount}\` coins`);
     message.channel.send(moneyEmbed)
     db.add(`money_${message.guild.id}_${user.id}`, amount)
     db.set(`beg_${message.guild.id}_${user.id}`, Date.now())

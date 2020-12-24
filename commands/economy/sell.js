@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if(args[0] == 'nikes') {
         let Embed2 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You don't have Nikes to sell`);
+        .setDescription(`<a:no:2395792404> You don't have Nikes to sell`);
 
         let nikeses = await db.fetch(`nikes_${message.guild.id}_${user.id}`)
 
@@ -17,14 +17,14 @@ module.exports.run = async (bot, message, args) => {
         db.fetch(`nikes_${message.guild.id}_${user.id}`)
         db.subtract(`nikes_${message.guild.id}_${user.id}`, 1)
 
-        let Embed3 = new Discord.RichEmbed()
+        let Embed3 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> Sold Fresh Nikes For 600 Coins`);
+        .setDescription(`<a:My_best_verified:787883034963476491> Sold Fresh Nikes For 600 Coins`);
 
         db.add(`money_${message.guild.id}_${user.id}`, 600)
         message.channel.send(Embed3)
     } else if(args[0] == 'car') {
-        let Embed2 = new Discord.RichEmbed()
+        let Embed2 = new Discord.MessageEmbed()
         .setColor(`RED`)
         .setDescription(`<a:no:790889592395792404> You don't have a Car to sell`);
 

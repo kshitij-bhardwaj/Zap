@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.author;
   let timeout = 604800000;
-  let amount = 500;
+  let amount = Math.floor(Math.random()*2500)+1500;
 
   let weekly = await db.fetch(`weekly_${message.guild.id}_${user.id}`);
 
@@ -15,12 +15,12 @@ module.exports.run = async (bot, message, args) => {
   
     let timeEmbed = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:790889592395792404> You have already collected your weekly reward\n\nCollect it again in ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`<a:no:791738978180399114> You have already collected your weekly reward\n\nCollect it again in ${time.days}d ${time.hours}h ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
   .setColor(`GREEN`)
-  .setDescription(`<a:My_best_verified:790894580643397653> You've collected your weekly reward of ${amount} coins`);
+  .setDescription(`<a:My_best_verified:787883034963476491> You've collected your weekly reward of ${amount} coins`);
   message.channel.send(moneyEmbed)
   db.add(`money_${message.guild.id}_${user.id}`, amount)
   db.set(`weekly_${message.guild.id}_${user.id}`, Date.now())

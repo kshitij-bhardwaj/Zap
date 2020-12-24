@@ -16,14 +16,6 @@ module.exports.run = async (bot, message, args) => {
     if(vip === null) vip = 'None'
     if(vip === true) vip = 'Bronze'
 
-  let shoes = await db.fetch(`nikes_${message.guild.id}_${user.id}`)
-  if(shoes === null) shoes = '0'
-
-  let newcar = await db.fetch(`car_${message.guild.id}_${user.id}`)
-  if(newcar === null) newcar = '0'
-
-  let newhouse = await db.fetch(`house_${message.guild.id}_${user.id}`)
-  if(newhouse === null) newhouse = '0'
 
   let moneyEmbed = new Discord.MessageEmbed()
   .setColor(`YELLOW`)

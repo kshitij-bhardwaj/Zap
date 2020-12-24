@@ -1,14 +1,13 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
 
-module.exports.run = async ( bot, message, args) => {
+module.exports.run = async ( client, message, args) => {
       
 
 
     let embed = new Discord.MessageEmbed()
-        .setDescription(`**VIP Ranks**\n\nBronze: 3500 Coins \`zap buy bronze\`\n\n**Lifestyle Items**\n\nFresh Nikes: 600 \`zap buy nikes\`\nCar: 800 \`zap buy car\`\nMansion: 1200 \`zap buy mansion\``)
-        .setColor(`GOLD`)
-        .setFooter(`To see the benefits of these items, type zap iteminfo [item-name]`)
+        .setDescription(`**VIP Ranks**\n\n <:cs_bronze:791611873182220299> **Bronze**: 3500 Coins \`${client.config.prefix} buy bronze\`\n**Bronze Rank Benefits:** Chance to get more coins from robbing someone \n`)
+        .setColor(`DARK_GOLD`)
     message.channel.send(embed)
 
 

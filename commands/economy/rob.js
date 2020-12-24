@@ -16,13 +16,13 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
 
     let timeEmbed = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:790889592395792404> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+    .setDescription(`<a:no:791738978180399114> You have already robbed someone\n\nTry again in ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
 
 let moneyEmbed = new Discord.MessageEmbed()
   .setColor(`RED`)
-  .setDescription(`<a:no:790889592395792404> You need atleast 200 coins in your wallet to rob someone`);
+  .setDescription(`<a:no:791738978180399114> You need atleast 200 coins in your wallet to rob someone`);
 
 if (author2 < 200) {
     return message.channel.send(moneyEmbed)
@@ -30,7 +30,7 @@ if (author2 < 200) {
 }
 let moneyEmbed2 = new Discord.MessageEmbed()
   .setColor(`RED`)
-  .setDescription(`<a:no:790889592395792404> ${user.user.username} does not have anything you can rob`);
+  .setDescription(`<a:no:791738978180399114> ${user.user.username} does not have anything you can rob`);
 if (targetuser < 0) {
     return message.channel.send(moneyEmbed2)
 }
@@ -42,7 +42,7 @@ if(vip === true) random = Math.floor(Math.random() * 200) + 1;
 if (vip === null) random = Math.floor(Math.random() * 100) + 1;
 
 let embed = new Discord.MessageEmbed()
-.setDescription(`<a:My_best_verified:790894580643397653> You robbed ${user} and got away with ${random} coins`)
+.setDescription(`<a:My_best_verified:787883034963476491> You robbed ${user} and got away with ${random} coins`)
 .setColor(`GREEN`)
 message.channel.send(embed)
 

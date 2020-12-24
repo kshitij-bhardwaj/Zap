@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
         let timeEmbed = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
+        .setDescription(`<a:no:791738978180399114> You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
         message.channel.send(timeEmbed)
       } else {
 
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         let amount = Math.floor(Math.random() * 80) + 1;
         let embed1 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> You worked as a ${replies[result]} and earned ${amount} coins`);
+        .setDescription(`<a:My_best_verified:787883034963476491> You worked as a ${replies[result]} and earned ${amount} coins`);
         message.channel.send(embed1)
         
         db.add(`money_${message.guild.id}_${user.id}`, amount)

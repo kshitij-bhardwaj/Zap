@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
     let moneyEmbed = new Discord.RichEmbed()
     .setColor(`GREEN`)
-    .setDescription(`<a:My_best_verified:790894580643397653> Removed ${args[1]} coins\n\nNew Balance: ${bal}`);
+    .setDescription(`<a:My_best_verified:787883034963476491> Removed ${args[1]} coins\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
 
 };
