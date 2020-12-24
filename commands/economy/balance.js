@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 
-module.exports.run = async (bot, message, args, utils) => {
-  if(!message.content.startsWith('zap'))return;  
+module.exports.run = async (bot, message, args, utils) => {  
 
   let user = message.mentions.members.first() || message.author;
 

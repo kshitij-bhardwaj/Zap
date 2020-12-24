@@ -2,8 +2,7 @@ const db = require('quick.db')
 const Discord = require('discord.js')
 const ms = require("parse-ms");
 
-module.exports.run = async (bot, message, args) => {
-    if(!message.content.startsWith('zap'))return;  
+module.exports.run = async (bot, message, args) => {  
 
     let user = message.author;
     let author = await db.fetch(`work_${message.guild.id}_${user.id}`)
