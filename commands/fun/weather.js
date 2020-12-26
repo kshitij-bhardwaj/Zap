@@ -1,37 +1,42 @@
 const weather = require('weather-js');
-const discord = require('discord.js')
 
-module.exports = {
-  name: "weather",
-  description: "Get the weather of anywhere",
-  category: "info",
-  usage: "weathet <>",
-  run: (client, message, args) => {
-    
-    
-    if(!args.length) {
-      return message.channel.send("Please give the weather location")
+module.exports.run = async(message, args) => {
+  async run(message, args) { 
+    try {
+      if (!args.length) {
+        return message.reply("Command Usage: `weather < city, country_code | zipcode >`")
+      }
+
+      await weather.find({ search: args.join(' '), degreeType: 'C' }, async (err, result) => {
+        if (err) {
+          return message.channel.send(`No search results found.`);
+        }
+
+        if (!result || !result.length) {
+          return message.channel.send("Mmm, oof, error!");
+        }
+
+        let fields = [];
+        for (let i = 0; i < result[0].forecast.length; i++) {
+          fields.push({
+            name: new Date(result[0].forecast[i].date).toDateString(),
+            value: `**Condition:** ${result[0].forecast[i].skytextday}\n**Low:** ${result[0].forecast[i].low} \u00B0${result[0].location.degreetype}\n**High:** ${result[0].forecast[i].high} \u00B0${result[0].location.degreetype}\n**Precipitation:** ${result[0].forecast[i].precip} cm`
+          });
+        }
+
+        await message.channel.send({
+          embed: {
+            title: '☀️ | Weather Forecast',
+            description: result[0].location.name,
+            fields: fields,
+            footer: {
+              text: 'Weather forcast!'
+            }
+          }
+        });
+      });
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-    
- weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
-try {
- 
-let embed = new discord.MessageEmbed()
-.setTitle(`Weather - ${result[0].location.name}`)
-.setColor("#ff2050")
-.setDescription("Temperature units can may be differ some time")
-.addField("Temperature", `${result[0].current.temperature} Celcius`, true)
-.addField("Sky Text", result[0].current.skytext, true)
-.addField("Humidity", result[0].current.humidity, true)
-.addField("Wind Speed", result[0].current.windspeed, true)//What about image
-.addField("Observation Time", result[0].current.observationtime, true)
-.addField("Wind Display", result[0].current.winddisplay, true)
-.setThumbnail(result[0].current.imageUrl);
-   message.channel.send(embed)
-} catch(err) {
-  return message.channel.send("Unable To Get the data of Given location")
-}
-});   
-    
-  }
+  };
 }
