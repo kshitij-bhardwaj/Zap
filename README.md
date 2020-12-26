@@ -28,3 +28,4 @@ Then why not bring the bot to your server, [here]() is the link to it!
 | work          | Work as something for money  |
  | randomdog    | Generates a random dog image  |
  | akistart     | Start an Akinator game!      |
+| wiki        | Search something on Wikipedia |
