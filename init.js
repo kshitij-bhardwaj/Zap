@@ -19,6 +19,7 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 client.categories = new Discord.Collection();
 client.snipes = new Discord.Collection();
 
