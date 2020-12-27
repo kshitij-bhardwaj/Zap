@@ -14,7 +14,7 @@ Then why not bring the bot to your server, [here]() is the link to it!
 | Commands      | Functions     |
 | ------------- | ------------- |
 | slap          | Slaps the mentioned user|
-| Info          | Shows information about the bot |
+| info          | Shows information about the bot |
 | poke          | Pokes the mentioned user|
 | meme          | Generates a random meme |
 | dank          | Generates a random meme from r/dankmemes |
