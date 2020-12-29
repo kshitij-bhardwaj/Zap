@@ -1,30 +1,29 @@
+const Discord = require('discord.js');
 const wiki = require("wikijs").default();
 
-module.exports = async ({ Constants: { Colors } }, documents, msg, commandData) => {
-	await msg.send({
-		embed: {
-			color: Colors.INFO,
-			title: `Searching Wikipedia just for you ⌛`,
-			description: `Please stand by...`,
-		},
-	});
+module.exports.run = async (client, message, args) => {
+	let embed = new Discord.MessageEmbed()
+					.setColor(`GREEN`)
+					.setTitle(`Fetching Info... <a:loading:787867865235324928>`)
+					.setDescription(`Please stand by...`)
+					
+	await message.channel.send(embed);
 	let result;
-	if (!msg.suffix) {
+	let suffix = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+	suffix = suffix.slice(1).join(' ');
+	
+	if (!suffix) {
 		const random = await wiki.random(1);
 		result = await wiki.page(random[0]);
 	} else {
-		const search = await wiki.search(msg.suffix, 1);
+		const search = await wiki.search(suffix, 1);
 		if (!search.results.length) {
-			return msg.send({
-				embed: {
-					color: Colors.SOFT_ERR,
-					title: "What was that again? 📚🤓",
-					description: "Even Wikipedia doesn't seem to know what you're talking about.",
-					footer: {
-						text: "Check for typos or try searching for something else!",
-					},
-				},
-			});
+			let embed1 = new Discord.MessageEmbed()
+						.setColor(`RED`)
+						.setTitle(`What was that again? 📚🤓`)
+						.setDescription(`Even Wikipedia doesn't seem to know what you're talking about.`)
+						.setFooter(`Check for typos or try searching for something else!`)
+			return message.channel.send(embed1);
 		}
 		result = await wiki.page(search.results[0]);
 	}
@@ -33,19 +32,16 @@ module.exports = async ({ Constants: { Colors } }, documents, msg, commandData) 
 		// 100 is a bit short so load the full description in that case
 		description = await result.content();
 	}
-	if (description.length > 1950) {
-		description = `${description.substring(0, 1950)}...\nArticle is too long, click [**here**](${result.raw.fullurl}) to read more!`;
+	if (description.length > 1800) {
+		description = `${description.substring(0, 1800)}...\nArticle is too long, click [**here**](${result.raw.fullurl}) to read more!`;
 	}
 	const mainImage = await result.mainImage().catch(() => null);
-	msg.send({
-		embed: {
-			color: Colors.RESPONSE,
-			title: result.raw.title,
-			url: result.raw.fullurl,
-			description,
-			image: {
-				url: mainImage,
-			},
-		},
-	});
+	let mainEmbed = new Discord.MessageEmbed()
+						.setColor(`GREEN`)
+						.setTitle(`${result.raw.title}`)
+						.setDescription(`${description}`)
+						.setImage(mainImage)
+						.setURL(result.raw.fullurl)
+						
+	message.channel.send(mainEmbed);
 };
