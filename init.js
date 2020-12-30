@@ -3,7 +3,10 @@ const fs = require("fs");
 const { resolve } = require("path");
 const walk = require("walk");
 
+const { Player } = require("discord-player");
+const player = new Player(client);
 
+client.player = player;
 
 const config = require("./config.json");
 const client = new Discord.Client();
