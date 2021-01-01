@@ -87,6 +87,10 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 |withdraw | Withdraw money into the bank|
 |work     | Work |
 
+
+
+![example](https://cdn.discordapp.com/attachments/791589454929330197/794520953236226048/ezgif-1-79fa9d80b2e9.gif)
+
 ----------------------
 ### **These files have been put here to show the legitimacy of the bot.**
 ### **We will not be hearing any issues related to hosting of the bot.**
