@@ -105,4 +105,6 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 ----------------------
 # License 
 
-Apache License 2.0. Read more about it [here](https://www.apache.org/licenses/LICENSE-2.0.txt)
+### Apache License 2.0. 
+
+Read more about it [here](https://www.apache.org/licenses/LICENSE-2.0.txt)
