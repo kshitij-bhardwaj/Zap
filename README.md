@@ -92,3 +92,17 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 ### **We will not be hearing any issues related to hosting of the bot.**
 
 ----------------------
+# Support Server
+
+[Join](https://discord.gg/7jgMAd2qpf) the support server, for help and information.
+
+
+----------------------
+# Contribution To The Project
+
+**Everyone** is free to contribute towards the project, we will always look forward to devoted developers. 
+
+----------------------
+# License 
+
+Apache License 2.0. Read more about it [here](https://www.apache.org/licenses/LICENSE-2.0.txt)
