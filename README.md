@@ -88,3 +88,7 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 |work     | Work |
 
 ----------------------
+### **These files have been put here to show the legitimacy of the bot.**
+### **We will not be hearing any issues related to hosting of the bot.**
+
+----------------------
