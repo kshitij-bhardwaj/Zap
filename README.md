@@ -2,7 +2,6 @@
 
 # Zap
 
-https://img.shields.io/badge/Lisence-Apache%20license%202.0-orange
 
 
 
