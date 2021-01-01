@@ -59,3 +59,27 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 | leave  | Kick's zap from the `voice channel` |
 
 
+### Economy Commands
+
+**Prefix is zap.** ```Example: zap beg ```
+
+
+| Commands      | Functions     |
+| ------------- | ------------- |
+| beg  | Begs from `someone`|
+| buy | Enables you to buy from our ever-increasing store|
+| daily | Gives you rewards `daily` |
+| weekly | Gives you rewards `weekly` |
+| monthly | Gives you rewards `monthly`. Premium 'cause huge rewards|
+|pay | Give some of your money to `someone` |
+| profile | Shows you your `profile` |
+| removemoney | Admin command, when you bully |
+| rob   | Allows you to rob the wallets of other users in your server| 
+| roulette |  Gamble your coins, in hopes of winning more.|
+| slots| gamble your coins, in hopes of winning more, in an interesting way |
+| store | See the super duper awesome store |
+| deposit | Deposit money into the bank |
+|withdraw | Withdraw money into the bank|
+|work     | Work |
+
+----------------------
