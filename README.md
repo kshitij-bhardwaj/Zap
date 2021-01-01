@@ -3,12 +3,10 @@
 Zap is an awesome discord bot filled with fun commands just to make your time at **discord** more fun!!
 We've integrated *top-notch* commands just for the sake of your entertainment, can't wait anymore? Want this bot for yourself?
 
-Then why not bring the bot to your server, [here]() is the link to it!
+Then why not bring the bot to your server, [here](https://discord.com/api/oauth2/authorize?client_id=790482144665403422&permissions=1580592496&scope=bot) is the link to it!
 
 ---------------------------
-#Commands
-
-
+# Commands
 
 ### Fun Commands
 
@@ -27,5 +25,37 @@ Then why not bring the bot to your server, [here]() is the link to it!
  | akistart     | Start an Akinator game!      |
 | wiki        | Search something on Wikipedia |
 |define      | Defines a query |
+| 8ball     | Ask the magic 8ball a question |
+| gallery   | Shows you the picturesque gallery of Zap|
 
---------
+
+
+
+### Utility Commands
+
+**Prefix is zap.** ```Example: zap enable automod```
+
+| Commands      | Functions     |
+| ------------- | ------------- |
+| automod `enable/disable` | enables or disables the automod|
+| invite                  |  invite Zap to your server! |
+| info                   | Information about Zap  |
+| help                   | Shows all commands Zap holds |
+
+
+### Music Commands
+
+**Prefix is zap.** ```Example: zap play One Dance```
+
+| Commands      | Functions     |
+| ------------- | ------------- |
+| play | plays some music|
+| skip | Skips the current song |
+| queue | Shows you the `queue`|
+| nowplaying | Shows information about the current playing song |
+| pause  | Pauses the song! |
+| resume | Resumes the song `paused` |
+| volume [value(between 0 and 10)] | Changes the volume |
+| leave  | Kick's zap from the `voice channel` |
+
+
