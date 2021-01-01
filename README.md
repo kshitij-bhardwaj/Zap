@@ -89,7 +89,7 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 
 
 
-![example](https://cdn.discordapp.com/attachments/791589454929330197/794520953236226048/ezgif-1-79fa9d80b2e9.gif)
+![example](https://cdn.discordapp.com/attachments/791589454929330197/794521828378279966/ezgif-1-dd9721fc00d8.gif)
 
 ----------------------
 ### **These files have been put here to show the legitimacy of the bot.**
