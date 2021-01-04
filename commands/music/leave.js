@@ -1,22 +1,8 @@
-const Discord = require("discord.js")
-const fs = require("fs")
-
-module.exports.run = async (client, message, args) => {
-  
-  if(!message.member.voice.channel) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | You must be in a voice channel!` }})
-    
-  if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | You are not in my voice channel!`}});
-  
-  if(!client.player.isPlaying(message.guild.id)) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | There is nothing playing!` }})
-  
-  let song = await client.player.stop(message.guild.id);
-
-  message.channel.send({embed: {color: client.colors.success, description: `${client.emotes.stop} | Disconnected!` }})
-
-
-}
-
-module.exports.config = {
-  name: "leave",
-  aliases: []
-}
+module.exports.run = (client, message) => {
+		const { channel } = message.member.voice;
+		if (!channel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+		const serverQueue = message.client.queue.get(message.guild.id);
+		if (!serverQueue) return message.channel.send('There is nothing playing that I could stop for you.');
+		serverQueue.songs = [];
+		serverQueue.connection.dispatcher.end('Stop command has been used!');
+	};

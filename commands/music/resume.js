@@ -1,23 +1,9 @@
-
-const Discord = require("discord.js")
-const fs = require("fs")
-
-module.exports.run = async (client, message, args) => {
-
-  if(!message.member.voice.channel) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | You must be in a voice channel!` }})
-    
-  if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | You are not in my voice channel!`}});
-
-  
-  if(!client.player.isPlaying(message.guild.id)) return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | There is nothing playing!` }})
-  
-  let song = await client.player.resume(message.guild.id);
-            
-  return message.channel.send({embed: {color: client.colors.success, description: `${client.emotes.resume} | Resumed!` }});
-    
-}
-
-module.exports.config = {
-  name: "resume",
-  aliases: []
-}
+module.exports.run = (client, message) =>{
+		const serverQueue = message.client.queue.get(message.guild.id);
+		if (serverQueue && !serverQueue.playing) {
+			serverQueue.playing = true;
+			serverQueue.connection.dispatcher.resume();
+			return message.channel.send('▶ Resumed the music for you!');
+		}
+		return message.channel.send('There is either nothing playing or the music isn\'t paused.');
+	};
