@@ -2,7 +2,7 @@
 
 # Zap
 
-![commitactivity](https://img.shields.io/github/commit-activity/w/kshitij-bhardwaj/Zap?style=for-the-badge)
+![commitactivity](https://img.shields.io/github/commit-activity/w/kshitij-bhardwaj/Zap?style=for-the-badge) ![top](https://img.shields.io/github/languages/top/kshitij-bhardwaj/Zap?style=for-the-badge)
 
 
 Zap is an awesome discord bot filled with fun commands just to make your time at **discord** more fun!!
