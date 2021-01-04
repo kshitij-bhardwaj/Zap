@@ -98,7 +98,7 @@ Then why not bring the bot to your server, [here](https://discord.com/api/oauth2
 ----------------------
 # Support Server
 
-[Join](https://discord.gg/7jgMAd2qpf) the support server, for help and information. As of 2021 we are starting to take premium guilds on **boosting** the sever. On **boosting the server** you will get access to the premium commands. Joining the ***support server*** marked premium, you get to witness the premium commands.
+[Join](https://discord.gg/RTh79cwxxp) the support server, for help and information. As of 2021 we are starting to take premium guilds on **boosting** the sever. On **boosting the server** you will get access to the premium commands. Joining the ***support server*** marked premium, you get to witness the premium commands.
 
 
 ----------------------
