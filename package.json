@@ -18,7 +18,6 @@
   "homepage": "https://github.com/kshitij-bhardwaj/Zap#readme",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "@tensorflow/tfjs-node": "^2.8.3",
     "aki-api": "^5.2.1",
     "alexa-bot-api": "^0.2.1",
     "canvas": "^2.6.1",
@@ -29,16 +28,12 @@
     "discord.js-menu": "^2.2.2",
     "distube": "^2.8.8",
     "dotenv": "^10.0.0",
-    "face-api.js": "^0.22.2",
     "ffmpeg-static": "^4.2.7",
     "fs": "0.0.1-security",
     "got": "^11.8.1",
     "html-entities": "^1.4.0",
     "join": "^3.0.0",
-    "mongodb": "^3.6.3",
-    "mongoose": "^5.11.8",
     "node-superfetch": "^0.1.10",
-    "node-wit": "^6.0.0",
     "nodemon": "^2.0.7",
     "parse-ms": "^2.1.0",
     "quick.db": "^7.1.3",
@@ -46,14 +41,11 @@
     "reconlx": "^1.0.72",
     "relevant-urban": "^2.0.0",
     "request": "^2.88.2",
-    "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
-    "systeminformation": "^4.34.7",
+    "systeminformation": "^5.7.3",
     "url": "^0.11.0",
     "walk": "^2.3.14",
     "weather-js": "^2.0.0",
-    "wikijs": "^6.0.1",
-    "yt-search": "^2.5.1",
-    "ytdl-core": "^4.4.3"
+    "wikijs": "^6.0.1"
   }
 }

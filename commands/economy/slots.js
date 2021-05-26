@@ -12,11 +12,11 @@ module.exports={
     let win = false;
 
     let moneymore = new Discord.MessageEmbed()
-    .setColor(`RED`)
+    .setColor(`${resources["embed-failure"]}`)
     .setDescription(`${resources["emoji-error"]} You are betting more than you have`);
 
     let moneyhelp = new Discord.MessageEmbed()
-    .setColor(`RED`)
+    .setColor(`${resources["embed-failure"]}`)
     .setDescription(`${resources["emoji-error"]} Specify an amount`);
 
     if (!money) return message.channel.send(moneyhelp);
@@ -35,13 +35,13 @@ module.exports={
     if (win) {
         let slotsEmbed1 = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou won \`Ƶ${money}\` coins`)
-            .setColor(`ORANGE`)
+            .setColor(`${resources["embed-success"]}`)
         message.channel.send(slotsEmbed1)
         db.add(`money_${message.guild.id}_${user.id}`, money)
     } else {
         let slotsEmbed = new Discord.MessageEmbed()
             .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lost \`Ƶ${money}\``)
-            .setColor(`BLUE`)
+            .setColor(`${resources["embed-failure"]}`)
         message.channel.send(slotsEmbed)
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
     }

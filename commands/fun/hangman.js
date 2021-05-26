@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 var randomWords = require('random-words');
+const resources = require('../../resources.json')
 const letterEmojisMap = {
     "🅰️": "A", "🇦": "A", "🅱️": "B", "🇧": "B", "🇨": "C", "🇩": "D", "🇪": "E",
     "🇫": "F", "🇬": "G", "🇭": "H", "ℹ️": "I", "🇮": "I", "🇯": "J", "🇰": "K", "🇱": "L",
@@ -27,7 +28,7 @@ class HangmanGame {
 
 
         const embed = new Discord.MessageEmbed()
-            .setColor('GREEN')
+            .setColor(`${resources['embed-fun']}`)
             .setTitle('Zap\'s Hangman')
             .setDescription(this.getDescription())
             .addField('Letters Guessed', '\u200b')
@@ -61,7 +62,7 @@ class HangmanGame {
 
         if (this.inGame) {
             const editEmbed = new Discord.MessageEmbed()
-                .setColor('GREEN')
+                .setColor(`${resources['embed-fun']}`)
                 .setTitle('Hangman')
                 .setDescription(this.getDescription())
                 .addField('Letters Guessed', this.guesssed.length == 0 ? '\u200b' : this.guesssed.join(" "))
@@ -75,7 +76,7 @@ class HangmanGame {
     gameOver(win) {
         this.inGame = false;
         const editEmbed = new Discord.MessageEmbed()
-            .setColor('RED')
+            .setColor(`${resources['embed-fun']}`)
             .setTitle('Zap\'sHangman')
             .setDescription((win ? "Oh, did you just win!" : "Sorry, but you did lose!") + "\n\nThe Word was:\n" + this.word)
             .setTimestamp();

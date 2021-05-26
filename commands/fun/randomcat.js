@@ -1,6 +1,6 @@
 const request = require('request'); 
 const Discord = require("discord.js")
-
+const resources = require('../../resources.json')
 module.exports={
   aliases: ['rc'],
   run(client, message, args) {  
@@ -8,7 +8,7 @@ module.exports={
             if (!error && response.statusCode == 200) {
                     let embed = new Discord.MessageEmbed()
                     .setImage(body)
-                    .setColor("#00ff00")
+                    .setColor(`${resources['embed-fun']}`)
                     .setTitle("A Cat")
                               
                    message.channel.send(embed)  

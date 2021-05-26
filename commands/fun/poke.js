@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-
+const resources = require('../../resources.json');
 exports.run = async (client, message, args) => {
     let personPoke = message.mentions.members.first();
     db.add(`pokey_${message.guild.id}_${message.author.id}_${personPoke}`, 1)
@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
         let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just poked ${personPoke}!`)
             .setImage(pokerand)
-            .setColor(`GREEN`);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
         let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just poked ${personPoke}!`)
             .setImage(pokerand)
-            .setColor(client.config.embedColor);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
         let embed = new Discord.MessageEmbed()
             .setDescription(`**<@${message.author.id}> just poked ${personPoke}! `)
             .setImage(pokerand)
-            .setColor(client.config.embedColor);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -47,7 +47,7 @@ exports.run = async (client, message, args) => {
         .setDescription(`<@${message.author.id}> just poked ${personPoke}!`)
         .addField(`${quoterand}`,`<@${message.author.id}> has poked ${personPoke} ${number} time(s)`, false)
         .setImage(pokerand)
-        .setColor(`GREEN`);
+        .setColor(`${resources['embed-fun']}`);
 
     message.channel.send(embed);
     

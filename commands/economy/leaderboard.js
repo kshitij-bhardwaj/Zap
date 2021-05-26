@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
-
+const resources = require("../../resources.json");
 module.exports= {
   aliases: ['lead', 'lb'],
   async run(client, message, args) {  
@@ -45,7 +45,7 @@ module.exports= {
 
     const embed = new Discord.MessageEmbed()
     .setTitle(`**${message.guild.name}'s Coin Leaderboard**\n\n${finallb}`)
-    .setColor(`GREEN`)
+    .setColor(`${resources['embed-success']}`)
     .setTimestamp()
     .setThumbnail('https://media.giphy.com/media/dt92tDMQbv2sCsBKj2/giphy.gif')
     .setFooter(`Image Credits: Re Modernist`)

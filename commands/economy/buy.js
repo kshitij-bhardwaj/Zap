@@ -9,7 +9,7 @@ module.exports={
     let author = db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let Embed = new Discord.MessageEmbed()
-    .setColor(`RED`)
+    .setColor(`${resources['embed-failure']}`)
     .setDescription(`${resources['emoji-error']} You need \`Ƶ${750000 - author}\` to purchase Setup 1 from the Gaming Store`);
 
     if (args[0] == 'setup1') {
@@ -28,7 +28,7 @@ module.exports={
         message.channel.send(Embed2)
     } else if(args[0] == 'setup2') {
         let Embed3 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-error']} You need \`Ƶ${550000 - author}\` to purchase Setup 2 from the Gaming Store`);
 
         if (author < 550000) return message.channel.send(Embed3)
@@ -37,7 +37,7 @@ module.exports={
         db.set(`gaming_setup2_${message.guild.id}_${user.id}`, true)
 
         let Embed4 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`${resources['embed-success']}`)
         .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 2 For \`Ƶ550000\``)
         .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793426142324850718/d4EthlX.jpg`)
         .setFooter(`Image Source: https://i.imgur.com/d4EthlX.jpg`);
@@ -46,7 +46,7 @@ module.exports={
         message.channel.send(Embed4)
     } else if(args[0] == 'setup3') {
         let Embed5 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-error']} You need \`Ƶ${300000 - author}\` to purchase Setup 3 from the Gaming Store`);
 
         if (author < 300000) return message.channel.send(Embed5)
@@ -55,7 +55,7 @@ module.exports={
         db.set(`gaming_setup3_${message.guild.id}_${user.id}`, true)
 
         let Embed6 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`${resources['embed-success']}`)
         .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 3 For \`Ƶ300000\``)
         .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793427586466185267/jack-b-B10AxHKLvnQ-unsplash.jpg`)
         .setFooter(`https://unsplash.com/photos/fewhfXbCUzI`);
@@ -64,7 +64,7 @@ module.exports={
         message.channel.send(Embed6)
     } else if(args[0] == 'setup4') {
         let Embed7 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-error']} We were kidding. You just need \`Ƶ${5000 - author}\`to purchase this shitty setup from the Gaming Store\n And it seems you don't even have that much.`);
 
         if (author < 5000) return message.channel.send(Embed7)
@@ -73,7 +73,7 @@ module.exports={
         db.set(`gaming_setup4_${message.guild.id}_${user.id}`, true)
 
         let Embed8 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`${resources['embed-success']}`)
         .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 4 For Just \`Ƶ5000\`.\n Yup, we were kidding XD`)
         .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793428779917246464/Y55cTVp.jpeg`)
         .setFooter(`Image Source:https://imgur.com/gallery/mfs51zx`);
@@ -84,7 +84,7 @@ module.exports={
        
         else {
         let embed3 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-error']} Enter an item to buy LOL`)
         message.channel.send(embed3)
     }

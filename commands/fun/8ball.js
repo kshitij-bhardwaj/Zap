@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const resources = require('../../resources.json')
 const answers = [
   'It is certain.',
   'It is decidedly so.',
@@ -33,6 +34,6 @@ module.exports.run= (client, message, args) => {
       .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`, false)
       .setFooter(message.author.username,  message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
-      .setColor(`GREEN`);
+      .setColor(`${resources['embed-fun']}`);
     message.channel.send(embed);
   };

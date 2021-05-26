@@ -21,12 +21,12 @@ module.exports={
       let time = ms(timeout - (Date.now() - beg));
     
       let timeEmbed = new Discord.MessageEmbed()
-      .setColor(`RED`)
+      .setColor(`${resources['embed-failure']}`)
       .setDescription(`${resources['emoji-error']} ${blockedvalue} \n\nBeg again in ${time.minutes}m ${time.seconds}s `);
       message.channel.send(timeEmbed)
     } else {
       let moneyEmbed = new Discord.MessageEmbed()
-    .setColor(`GREEN`)
+    .setColor(`${resources['embed-success']}`)
     .setDescription(`${resources['emoji-coin']} **${altrusitvalue}** gave you \`Ƶ${amount}\``);
     message.channel.send(moneyEmbed)
     db.add(`money_${message.guild.id}_${user.id}`, amount)

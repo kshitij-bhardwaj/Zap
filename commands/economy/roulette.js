@@ -20,15 +20,15 @@ let moneydb = await db.fetch(`money_${message.guild.id}_${user.id}`)
 let random = Math.floor(Math.random() * 37);
 
 let moneyhelp = new Discord.MessageEmbed()
-.setColor(`RED`)
+.setColor(`${resources["embed-failure"]}`)
 .setDescription(`${resources["emoji-error"]} Specify an amount to gamble | ${client.config.prefix} roulette <color> <amount>`);
 
 let moneymore = new Discord.MessageEmbed()
-.setColor(`RED`)
+.setColor(`${resources["embed-failure"]}`)
 .setDescription(`${resources["emoji-error"]} You are betting more than you have`);
 
 let colorbad = new Discord.MessageEmbed()
-.setColor(`RED`)
+.setColor(`${resources["embed-failure"]}`)
 .setDescription(`${resources["emoji-error"]} Specify a color | Red🔴 [1.5x] Black⚫ [2x] Green🟢 [15x]`);
 
 
@@ -48,7 +48,7 @@ let colorbad = new Discord.MessageEmbed()
         money *= 15
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed1 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`${resources["embed-fun"]}`)
         .setDescription(`🟢 You won ${money} coins\n\nMultiplier: 15x`);
         message.channel.send(moneyEmbed1)
         console.log(`${message.author.tag} Won ${money} on green`)
@@ -56,20 +56,20 @@ let colorbad = new Discord.MessageEmbed()
         money = parseInt(money * 1.5)
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed2 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources["embed-fun"]}`)
         .setDescription(`🔴 You won ${money} coins\n\nMultiplier: 1.5x`);
         message.channel.send(moneyEmbed2)
     } else if (!isOdd(random) && colour == 0) { // Black
         money = parseInt(money * 2)
         db.add(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed3 = new Discord.MessageEmbed()
-        .setColor("#FFFFFF")
+        .setColor(`${resources["embed-fun"]}`)
         .setDescription(`⚫ You won ${money} coins\n\nMultiplier: 2x`);
         message.channel.send(moneyEmbed3)
     } else { // Wrong
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed4 = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources["embed-failure"]}`)
         .setDescription(`${resources["emoji-error"]} You lost \`Ƶ${money}\`\n\nMultiplier: 0x`);
         message.channel.send(moneyEmbed4)
     }

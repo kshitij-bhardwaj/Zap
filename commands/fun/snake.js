@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-
+const resources = require('../../resources.json')
 const WIDTH = 15;
 const HEIGHT = 10;
 const gameBoard = [];
 const apple = { x: 1, y: 1 };
-
+const db = require("quick.db");
 class SnakeGame {
     constructor() {
         this.snake = [{ x: 5, y: 5 }];
@@ -68,7 +68,7 @@ class SnakeGame {
         this.snake = [{ x: 5, y: 5 }];
         this.newAppleLoc();
         const embed = new Discord.MessageEmbed()
-            .setColor('#03ad03')
+            .setColor(`${resources['embed-fun']}`)
             .setTitle('Snake Game')
             .setDescription(this.gameBoardToString())
             .setTimestamp();
@@ -92,7 +92,7 @@ class SnakeGame {
         }
 
         const editEmbed = new Discord.MessageEmbed()
-            .setColor('#03ad03')
+            .setColor(`${resources['embed-fun']}`)
             .setTitle('Snake Game')
             .setDescription(this.gameBoardToString())
             .setTimestamp();
@@ -104,7 +104,7 @@ class SnakeGame {
     gameOver() {
         this.inGame = false;
         const editEmbed = new Discord.MessageEmbed()
-            .setColor('#03ad03')
+            .setColor(`${resources['embed-fun']}`)
             .setTitle('Snake Game')
             .setDescription("GAME OVER!\nSCORE: " + this.score)
             .setTimestamp();

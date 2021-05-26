@@ -1,5 +1,6 @@
 const got = require('got')
 const {MessageEmbed} = require('discord.js')
+const resources = require('../../resources.json')
 module.exports={
     aliases: ["4c"],
  run(client, message, args){
@@ -18,9 +19,9 @@ got('https://www.reddit.com/r/4chan/random/.json')
 
             embed.setTitle(`${memeTitle}`);
             embed.setURL(`${memeUrl}`);
-            embed.setColor('RANDOM');
+            embed.setColor(`${resources['embed-fun']}`);
             embed.setImage(memeImage);
-            embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}`);
+            embed.setFooter(`${resources['emojo-thumbsUp']} ${memeUpvotes} ${resources['emoji-comment']} ${memeNumComments}`);
 
             message.channel.send(embed);
         })

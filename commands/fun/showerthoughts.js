@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const got = require('got');
-
+const resources = require('../../resources.json')
 module.exports={
 	aliases: ['shth'],
 	async run(client, message, args) {  
@@ -18,8 +18,8 @@ module.exports={
 
 			embed.setTitle(`${memeTitle}`);
 			embed.setURL(`${memeUrl}`);
-			embed.setColor('RANDOM');
-			embed.addField('Stats',`<:ThumbsupNitronix:792415417485754388> ${memeUpvotes} <:SpeechBubble:792414071017177142> ${memeNumComments}`,false);
+			embed.setColor(`${resources['embed-fun']}`);
+			embed.addField('Stats',`${resources['emojo-thumbsUp']} ${memeUpvotes} ${resources['emoji-comment']} ${memeNumComments}`,false);
 
 			message.channel.send(embed);
 		})

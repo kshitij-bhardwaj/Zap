@@ -21,9 +21,9 @@ module.exports={
   let level = await db.fetch(`level_${message.guild.id}_${user.id}`)
   if(level === null) level=1;
 
-  if(level===4) rank = '<:Gold:791801979718074378>'
-  else if(level===3) rank = '<:Silver:791802074958004234>'
-  else if(level===2) rank = '<:Bronze:791801943185948712>'
+  if(level===4) rank = '<:Gold:847190166766747648>'
+  else if(level===3) rank = '<:Silver:847190141931618384>'
+  else if(level===2) rank = '<:Bronze:847190105780125726>'
   else rank = 'Common'
   
     const canvas = createCanvas(1000,333);
@@ -42,16 +42,16 @@ module.exports={
     ctx.strokeRect(180, 216, 770, 65);
     ctx.stroke();
 
-    ctx.fillStyle = "#ff0000";
-    ctx.globalAlpha = 0.6;
-    ctx.fillRect(180, 216, ((100/ (level*1800))*xp), 65);
+    ctx.fillStyle = "#00ffff";
+    ctx.globalAlpha = 0.8;
+    ctx.fillRect(180, 218, ((100/(level*200)) * xp) * 7.7, 62);
     ctx.fill();
     ctx.globalAlpha = 1;
 
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(`${xp} / ${level*1800} XP`, 600, 260);
+    ctx.fillText(`${xp} / ${level*200} XP`, 600, 260);
 
     ctx.font = "30px Arial"
     ctx.textAlign = "left";
@@ -88,3 +88,4 @@ module.exports={
 
   }
 };
+//((100/ (level*200))*xp)

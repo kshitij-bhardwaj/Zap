@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-
+const resources = require('../../resources.json')
 module.exports.run = async (client, message, args) => {
   const verlvl = {
     'NONE': "None",
@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
     let inline = true
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.MessageEmbed()
-    .setColor("#00ff00")
+    .setColor(`${resources["embed-fun"]}`)
     .setThumbnail(sicon)
     .setAuthor(message.guild.name)
     .addField("Name", message.guild.name, inline)

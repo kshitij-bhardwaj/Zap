@@ -15,7 +15,7 @@ module.exports={
     let bank = await db.fetch(`bank_${message.guild.id}_${user.id}`)
 
     let embedbank = new Discord.MessageEmbed()
-    .setColor(`RED`)
+    .setColor(`${resources["embed-failure"]}`)
     .setDescription(`${resources["emoji-error"]} You don't have any money to deposit`)
 
     if(money === 0) return message.channel.send(embedbank)
@@ -23,14 +23,14 @@ module.exports={
     db.add(`bank_${message.guild.id}_${user.id}`, money)
     db.subtract(`money_${message.guild.id}_${user.id}`, money)
     let embed5 = new Discord.MessageEmbed()
-  .setColor(`GREEN`)
+  .setColor(`${resources["embed-success"]}`)
   .setDescription(`${resources["emoji-coin"]} You have deposited \`Ƶ${money}\` into your bank`);
   message.channel.send(embed5)
   
   } else {
   
   let embed2 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} Specify an amount to deposit`);
   
   if (!args[0]) {
@@ -38,14 +38,14 @@ module.exports={
       .catch(err => console.log(err))
   }
   let embed3 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} You can't deposit negative money. Try running withdraw.`);
 
   if (args.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} You don't have that much money`);
 
   if (member < args[0]) {
@@ -53,7 +53,7 @@ module.exports={
   }
 
   let embed5 = new Discord.MessageEmbed()
-  .setColor(`GREEN`)
+  .setColor(`${resources["embed-success"]}`)
   .setDescription(`${resources["emoji-success"]} You have deposited \`Ƶ${args[0]}\` into your bank`);
 
   message.channel.send(embed5)

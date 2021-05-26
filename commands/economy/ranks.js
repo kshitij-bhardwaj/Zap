@@ -12,7 +12,8 @@ module.exports.run = async(client, message) => {
     }
 }
 const addXP = async (guildID, userID) => {
-    const randomXP= Math.floor(Math.random()* 5)+2;
+    //const randomXP= Math.floor(Math.random()* 5)+2;
+    const randomXP= Math.floor(Math.random()* 50)+20;
     await db.fetch(`xp_${guildID}_${userID}`);
     await db.add(`xp_${guildID}_${userID}`, randomXP);
     await db.fetch(`valueXP_${guildID}_${userID}`);
@@ -29,9 +30,9 @@ const updateRank = async (guildID, userID) => {
         else if(level===2) rank = '<:Bronze:791801943185948712>'
         else rank = 'Common'
 
-        if(xp >= (level*1800)){
+        if(xp >= (level*200)){
             db.add(`level_${guildID}_${userID}`, 1);
-            db.set(`valueXP_${guildID}_${userID}`, (xp-(level*1800)));
+            db.set(`valueXP_${guildID}_${userID}`, (xp-(level*200)));
             message.reply(`<@${userID.username} has just level up and reached the ${rank} league!`)
         }
 

@@ -16,7 +16,7 @@ module.exports= {
   if (bank === null) bank = 0;
 
   let moneyEmbed = new Discord.MessageEmbed()
-  .setColor(`GREEN`)
+  .setColor(`${resources["embed-success"]}`)
   .setDescription(`${resources["emoji-success"]} **${user}'s Balance**\n\nWallet: Ƶ${bal}\nBank: Ƶ${bank}`);
   message.channel.send(moneyEmbed)
   }

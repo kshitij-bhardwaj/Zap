@@ -19,12 +19,12 @@ module.exports={
     let time = ms(timeout - (Date.now() - daily));
   
     let timeEmbed = new Discord.MessageEmbed()
-    .setColor(`RED`)
+    .setColor(`${resources["embed-failure"]}`)
     .setDescription(`${resources["emoji-error"]} You've already collected your daily reward\n\nCollect it again in ${time.hours}h ${time.minutes}m ${time.seconds}s `);
     message.channel.send(timeEmbed)
   } else {
     let moneyEmbed = new Discord.MessageEmbed()
-  .setColor(`GREEN`)
+  .setColor(`${resources["embed-success"]}`)
   .setDescription(`${resources["emoji-success"]} You've collected your daily reward of \`Ƶ${amount}\``);
   message.channel.send(moneyEmbed)
   db.add(`money_${message.guild.id}_${user.id}`, amount)

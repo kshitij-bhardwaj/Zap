@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const got = require('got');
-
+const resources = require('../../resources.json')
 module.exports.run = async (bot, message, args) => {
 	const embed = new Discord.MessageEmbed();
 	got('https://www.reddit.com/r/dankmemes/random/.json')
@@ -17,9 +17,9 @@ module.exports.run = async (bot, message, args) => {
 
 			embed.setTitle(`${memeTitle}`);
 			embed.setURL(`${memeUrl}`);
-			embed.setColor('RANDOM');
+			embed.setColor(`${resources['embed-fun']}`);
 			embed.setImage(memeImage);
-			embed.addField('Stats',`<:ThumbsupNitronix:792415417485754388> ${memeUpvotes} <:SpeechBubble:792414071017177142> ${memeNumComments}`,false);
+			embed.addField('Stats',`${resources['emojo-thumbsUp']} ${memeUpvotes} ${resources['emoji-comment']} ${memeNumComments}`,false);
 
 			message.channel.send(embed);
 		})

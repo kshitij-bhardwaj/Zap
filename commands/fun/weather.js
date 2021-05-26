@@ -1,6 +1,6 @@
 const weather = require('weather-js');
 const discord = require('discord.js');
-
+const resources = require('../../resources.json')
 module.exports = {
   name: "weather",
   description: "Get the weather of anywhere",
@@ -19,7 +19,7 @@ try {
  
 let embed = new discord.MessageEmbed()
 .setTitle(`Weather - ${result[0].location.name}`)
-.setColor("#ff2050")
+.setColor(`${resources['embed-fun']}`)
 .setDescription("Temperature units can may be differ some time")
 .addField("Temperature", `${result[0].current.temperature} Celcius`, true)
 .addField("Sky Text", result[0].current.skytext, true)

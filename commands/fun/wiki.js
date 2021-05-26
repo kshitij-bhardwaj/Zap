@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const wiki = require("wikijs").default();
-
+const resources = require('../../resources.json')
 module.exports={
 	aliases: ['wikipedia'],
 	async run(client, message, args) {  
 	let embed = new Discord.MessageEmbed()
-					.setColor(`GREEN`)
-					.setTitle(`Fetching Info... <a:loading:787867865235324928>`)
+					.setColor(`${resources['embed-fun']}`)
+					.setTitle(`Fetching Info${resources['emoji-loading']}`)
 					.setDescription(`Please stand by...`)
 					
 	let msg = await message.channel.send(embed);
@@ -21,7 +21,7 @@ module.exports={
 		const search = await wiki.search(suffix, 1);
 		if (!search.results.length) {
 			let embed1 = new Discord.MessageEmbed()
-						.setColor(`RED`)
+						.setColor(`${resources['embed-failure']}`)
 						.setTitle(`What was that again? 📚🤓`)
 						.setDescription(`Even Wikipedia doesn't seem to know what you're talking about.`)
 						.setFooter(`Check for typos or try searching for something else!`)
@@ -39,7 +39,7 @@ module.exports={
 	}
 	const mainImage = await result.mainImage().catch(() => null);
 	let mainEmbed = new Discord.MessageEmbed()
-						.setColor(`GREEN`)
+						.setColor(`${resources['embed-success']}`)
 						.setTitle(`${result.raw.title}`)
 						.setDescription(`${description}`)
 						.setImage(mainImage)
@@ -47,8 +47,8 @@ module.exports={
 						
 	message.channel.send(mainEmbed);
 	let embed1 = new Discord.MessageEmbed()
-					.setColor(`GREEN`)
-					.setTitle(`Here is the Info <a:tick:791208682607870003> `)
+					.setColor(`${resources['embed-success']}`)
+					.setTitle(`Here is the Info ${resources['emoji-success']} `)
 					.setDescription(`We hope you like our service`)
 	msg.edit(embed1);
 }

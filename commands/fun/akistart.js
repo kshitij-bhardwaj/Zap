@@ -1,6 +1,7 @@
 
 const { Client, MessageEmbed, Message  } = require("discord.js");
 const {  Aki  } = require("aki-api");
+const resources = require('../../resources.json')
 const emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"];
 const Started = new Set();
 module.exports={
@@ -13,7 +14,7 @@ else return message.channel.send("**:x: | The game already started..**");
  await aki.start();
  const msg = await message.channel.send(new MessageEmbed()
                                        .setTitle(`${message.author.username}, Question ${aki.currentStep + 1}`)
-                                       .setColor("RANDOM")
+                                       .setColor(`${resources["embed-fun"]}`)
                                        .setDescription(`**${aki.question}**\n${aki.answers.map((x, i) => `${x} | ${emojis[i]}`).join("\n")}`));
 for(let emoji of emojis)await msg.react(emoji).catch(console.error);
 const collector = msg.createReactionCollector((reaction, user) => emojis.includes(reaction.emoji.name) && user.id === message.author.id,{ time: 60000 * 6 });
@@ -28,19 +29,19 @@ if (aki.progress >= 70 || aki.currentStep >= 78) {
               .setTitle("Is this your character?")
               .setDescription(`**${aki.answers[0].name}**\n${aki.answers[0].description}\nRanking as **#${aki.answers[0].ranking}**\n\n[yes (**y**) / no (**n**)]`)
               .setImage(aki.answers[0].absolute_picture_path)
-              .setColor("RANDOM"));
+              .setColor(`${resources["embed-fun"]}`));
 message.channel.awaitMessages(response => ["yes","y","no","n"].includes(response.content.trim().toLowerCase()) &&
 response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"] })
         .then(collected => {
            const content = collected.first().content.trim().toLowerCase();
               if (content == "y" || content == "yes")
                    return message.channel.send(new MessageEmbed()
-                    .setColor("RANDOM")
+                    .setColor(`${resources["embed-fun"]}`)
                     .setTitle("Great! Guessed right one more time.")
                     .setDescription("I love playing with you!"));
               else 
                   return message.channel.send(new MessageEmbed()
-                    .setColor("RANDOM")
+                    .setColor(`${resources["embed-fun"]}`)
                     .setTitle("Uh. you are win")
                     .setDescription("I love playing with you!"));
             });
@@ -48,7 +49,7 @@ response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"]
         }
          msg.edit(new MessageEmbed()
                   .setTitle(`${message.author.username}, Question ${aki.currentStep + 1}`)
-                  .setColor("RANDOM")
+                  .setColor(`${resources["embed-fun"]}`)
                   .setDescription(`**${aki.question}**\n${aki.answers.map((x, i) => `${x} | ${emojis[i]}`).join("\n")}`));
    });
   

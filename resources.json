@@ -1,5 +1,14 @@
 {
     "emoji-success": "<a:green_tick:828983360458194975>",
     "emoji-error": "<:Cross:828983603768590348>",
-    "emoji-coin": "<a:richboi:843898734525415434>"
+    "emoji-coin": "<a:richboi:843898734525415434>",
+    "emojo-thumbsUp": "👍",
+    "emoji-comment": "💬",
+    "emoji-loading": "<a:color:801051062302933012>",
+    "emoji-giveRes": "<a:green_tick:828983360458194975>",
+
+    
+    "embed-success": "GREEN",
+    "embed-failure": "RED",
+    "embed-fun": "RANDOM"
 }

@@ -15,7 +15,7 @@ module.exports={
         let time = ms(timeout - (Date.now() - author));
     
         let timeEmbed = new Discord.MessageEmbed()
-        .setColor(`RED`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-error']} You have already worked recently\n\nTry again in ${time.minutes}m ${time.seconds}s `);
         message.channel.send(timeEmbed)
       } else {
@@ -25,7 +25,7 @@ module.exports={
         let result = Math.floor((Math.random() * replies.length));
         let amount = Math.floor(Math.random() * 80) + 1;
         let embed1 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`${resources['embed-failure']}`)
         .setDescription(`${resources['emoji-success']} You worked as a **${replies[result]}** and earned \`Ƶ${amount}\``);
         message.channel.send(embed1)
         

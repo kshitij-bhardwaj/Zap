@@ -15,7 +15,7 @@ module.exports={
     let bal = await db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let moneyEmbed = new Discord.RichEmbed()
-    .setColor(`GREEN`)
+    .setColor(`${resources["embed-success"]}`)
     .setDescription(`${resources["emoji-success"]} Removed \`Ƶ${args[1]}\`\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
   }

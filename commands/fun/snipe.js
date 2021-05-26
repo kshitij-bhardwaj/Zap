@@ -1,4 +1,4 @@
-  
+const resources = require('../../resources.json')
 const { MessageEmbed } = require("discord.js");
 module.exports = {
   aliases: ["sn"],
@@ -15,7 +15,7 @@ module.exports = {
       )
       .setDescription(msg.content)
       .setFooter(`Date: ${msg.date} | ${args[0] || 1}/${snipes.length}`)
-      .setColor(`GREEN`);
+      .setColor(`${resources['embed-fun']}`);
     if (msg.image !== null) {Embed.setImage(msg.image); }
     message.channel.send(Embed);
   },

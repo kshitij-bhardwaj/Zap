@@ -11,28 +11,28 @@ module.exports={
   let member = db.fetch(`money_${message.guild.id}_${message.author.id}`)
 
   let embed1 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} Mention someone to pay`);
 
   if (!user) {
       return message.channel.send(embed1)
   }
   let embed2 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} Specify an amount to pay`);
   
   if (!args[1]) {
       return message.channel.send(embed2)
   }
   let embed3 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} You can't pay someone negative money`);
 
   if (args.includes('-')) { 
       return message.channel.send(embed3)
   }
   let embed4 = new Discord.MessageEmbed()
-  .setColor(`RED`)
+  .setColor(`${resources["embed-failure"]}`)
   .setDescription(`${resources["emoji-error"]} You don't have that much money`);
 
   if (member < args[1]) {
@@ -40,7 +40,7 @@ module.exports={
   }
 
   let embed5 = new Discord.MessageEmbed()
-  .setColor(`GREEN`)
+  .setColor(`${resources["embed-success"]}`)
   .setDescription(`${resources["emoji-success"]} You have payed ${user.username} \`Ƶ${args[1]}\``);
 
   message.channel.send(embed5)

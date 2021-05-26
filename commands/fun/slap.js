@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-
+const resources = require('../../resources.json')
 module.exports={
     aliases: [],
     async run(client, message, args) {  
@@ -19,7 +19,7 @@ module.exports={
         let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just slapped ${personslap}!`)
             .setImage(slapgif)
-            .setColor(`RED`);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -30,7 +30,7 @@ module.exports={
         let embed = new Discord.MessageEmbed()
             .setDescription(`**<@${message.author.id}> just slapped ${personslap}! `)
             .setImage(slapgif)
-            .setColor(`RED`);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -41,7 +41,7 @@ module.exports={
         let embed = new Discord.MessageEmbed()
             .setDescription(`<@${message.author.id}> just slapped ${personslap}!`)
             .setImage(slapgif)
-            .setColor(`RED`);
+            .setColor(`${resources['embed-fun']}`);
 
         message.channel.send(embed);
         return;
@@ -51,7 +51,7 @@ module.exports={
         .setDescription(`**<@${message.author.id}> just slapped ${personslap}! ${quotrand}!**`)
         .addField(`${quotrand}`,`<@${message.author.id}> has slapped ${personslap} ${number1} time(s)`, false)
         .setImage(slapgif)
-        .setColor(`RED`);
+        .setColor(`${resources['embed-fun']}`);
 
     message.channel.send(embed);
 }
