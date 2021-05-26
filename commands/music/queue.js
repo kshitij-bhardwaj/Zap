@@ -1,11 +1,10 @@
-const { MessageEmbed } = require('discord.js');
-module.exports.run =(client, message)=> {
-    const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return message.channel.send('There is nothing playing.');
-    const embed= new MessageEmbed()
-      .setTitle(`**${message.guild.name}**'s Music Queue`)
-      .addField(`**Song queue:**`, `${serverQueue.songs.map(song => `➡️ ${song.title}`).join('\n')}`)
-      .addField(`**Now playing:**`, `${serverQueue.songs[0].title}`)
-		
-		message.channel.send(embed);
-	};
+  module.exports = {
+    name: "queue",
+    aliases: ["q"],
+    run: async (client, message, args) => {
+        const queue = client.distube.getQueue(message)
+        if (!queue) return message.channel.send(`There is nothing playing!`)
+        const q = queue.songs.map((song, i) => `${i === 0 ? "Playing:" : `${i}.`} ${song.name} - \`${song.formattedDuration}\``).join("\n")
+        message.channel.send(`**Server Queue**\n${q}`)
+    }
+}

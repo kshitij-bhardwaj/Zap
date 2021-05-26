@@ -1,9 +1,14 @@
-module.exports.run = (client, message) =>{
-		const serverQueue = message.client.queue.get(message.guild.id);
-		if (serverQueue && !serverQueue.playing) {
-			serverQueue.playing = true;
-			serverQueue.connection.dispatcher.resume();
-			return message.channel.send('▶ Resumed the music for you!');
+
+	module.exports = {
+		name: "resume",
+		aliases: ["resume", "unpause"],
+		inVoiceChannel: true,
+		run: async (client, message, args) => {
+			const { channel } = message.member.voice;
+		if (!channel) return message.channel.send({embed:{color:`RED`, description: 'I\'m sorry but you need to be in a voice channel to play music!'}});
+			const queue = client.distube.getQueue(message)
+			if (!queue) return message.channel.send(`There is nothing in the queue right now!`)
+			client.distube.resume(message)
+			message.channel.send("Resumed the song for you :)")
 		}
-		return message.channel.send('There is either nothing playing or the music isn\'t paused.');
-	};
+	}
