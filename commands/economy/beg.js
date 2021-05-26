@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 const db = require("quick.db");
 const ms = require("parse-ms");
-module.exports.run = async (bot, message, args) => {  
+const resources = require("../../resources.json")
+module.exports={
+  aliases: [],
+  async run(client, message, args) {  
   
     let user = message.author;
   
@@ -10,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     let amount = amountrand[Math.floor(Math.random() * amountrand.length)];
     let altrusit = ["Taylor Swift", "Carl Johnson", "Joe Biden", "Spongebob", "Goku", "Kira", "Franklin", "OnePunchMan", "Your mother"];
     let altrusitvalue = altrusit[Math.floor(Math.random() * altrusit.length)];
-    let blocked= ["**Beg too much and the economy will crash**", "**Why don't you work? Huh?**", "**IMF ran out of money!**"];
+    let blocked= ["**Beg too much and the economy will crash**", "**Why don't you work? Huh?**", "**IMF ran out of money!**", "Not again"];
     let blockedvalue = blocked[Math.floor(Math.random() * blocked.length)];
     let beg = await db.fetch(`beg_${message.guild.id}_${user.id}`);
   
@@ -19,22 +22,17 @@ module.exports.run = async (bot, message, args) => {
     
       let timeEmbed = new Discord.MessageEmbed()
       .setColor(`RED`)
-      .setDescription(`<a:no:791738978180399114> ${blockedvalue} \n\nBeg again in ${time.minutes}m ${time.seconds}s `);
+      .setDescription(`${resources['emoji-error']} ${blockedvalue} \n\nBeg again in ${time.minutes}m ${time.seconds}s `);
       message.channel.send(timeEmbed)
     } else {
       let moneyEmbed = new Discord.MessageEmbed()
     .setColor(`GREEN`)
-    .setDescription(`<a:Coin:791741559506337832> **${altrusitvalue}** gave you \`${amount}\` coins`);
+    .setDescription(`${resources['emoji-coin']} **${altrusitvalue}** gave you \`Ƶ${amount}\``);
     message.channel.send(moneyEmbed)
     db.add(`money_${message.guild.id}_${user.id}`, amount)
     db.set(`beg_${message.guild.id}_${user.id}`, Date.now())
   
   
     }
-  };
-  
-  
-  module.exports.help = {
-    name:"beg",
-    aliases: [""]
   }
+  };

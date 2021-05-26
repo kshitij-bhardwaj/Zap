@@ -1,8 +1,10 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const ms = require("parse-ms");
-
-module.exports.run = async (client, message, args) => {  
+const resources = require('../../resources.json')
+module.exports={
+    aliases: ['rl'],
+    async run(client, message, args) {    
 
   let user = message.author;
 
@@ -19,15 +21,15 @@ let random = Math.floor(Math.random() * 37);
 
 let moneyhelp = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:791738978180399114> Specify an amount to gamble | ${client.config.prefix} roulette <color> <amount>`);
+.setDescription(`${resources["emoji-error"]} Specify an amount to gamble | ${client.config.prefix} roulette <color> <amount>`);
 
 let moneymore = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:791738978180399114> You are betting more than you have`);
+.setDescription(`${resources["emoji-error"]} You are betting more than you have`);
 
 let colorbad = new Discord.MessageEmbed()
 .setColor(`RED`)
-.setDescription(`<a:no:791738978180399114> Specify a color | Red🔴 [1.5x] Black⚫ [2x] Green🟢 [15x]`);
+.setDescription(`${resources["emoji-error"]} Specify a color | Red🔴 [1.5x] Black⚫ [2x] Green🟢 [15x]`);
 
 
     if (!colour)  return message.channel.send(colorbad);
@@ -68,13 +70,8 @@ let colorbad = new Discord.MessageEmbed()
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
         let moneyEmbed4 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:791738978180399114> You lost ${money} coins\n\nMultiplier: 0x`);
+        .setDescription(`${resources["emoji-error"]} You lost \`Ƶ${money}\`\n\nMultiplier: 0x`);
         message.channel.send(moneyEmbed4)
     }
 }
-
-  
-  module.exports.help = {
-    name:"roulette",
-    aliases: ["roul"]
-  }
+}

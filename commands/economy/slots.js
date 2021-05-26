@@ -1,8 +1,10 @@
 const slotItems = ["🍇", "🍉", "🍊", "🍎", "🍌", "🍓", "🍒"];
 const db = require("quick.db");
 const Discord = require('discord.js');
-
-module.exports.run = async (bot, message, args) => {  
+const resources = require('../../resources.json')
+module.exports={
+    aliases: ['sl'],
+    async run(client, message, args) {    
 
     let user = message.author;
     let moneydb = await db.fetch(`money_${message.guild.id}_${user.id}`)
@@ -11,11 +13,11 @@ module.exports.run = async (bot, message, args) => {
 
     let moneymore = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:791738978180399114> You are betting more than you have`);
+    .setDescription(`${resources["emoji-error"]} You are betting more than you have`);
 
     let moneyhelp = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:791738978180399114> Specify an amount`);
+    .setDescription(`${resources["emoji-error"]} Specify an amount`);
 
     if (!money) return message.channel.send(moneyhelp);
     if (money > moneydb) return message.channel.send(moneymore);
@@ -32,21 +34,17 @@ module.exports.run = async (bot, message, args) => {
     }
     if (win) {
         let slotsEmbed1 = new Discord.MessageEmbed()
-            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou won ${money} coins`)
+            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou won \`Ƶ${money}\` coins`)
             .setColor(`ORANGE`)
         message.channel.send(slotsEmbed1)
         db.add(`money_${message.guild.id}_${user.id}`, money)
     } else {
         let slotsEmbed = new Discord.MessageEmbed()
-            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lost ${money} coins`)
+            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lost \`Ƶ${money}\``)
             .setColor(`BLUE`)
         message.channel.send(slotsEmbed)
         db.subtract(`money_${message.guild.id}_${user.id}`, money)
     }
 
 }
-  
-  module.exports.help = {
-    name:"slots",
-    aliases: ["sl"]
-  }
+}

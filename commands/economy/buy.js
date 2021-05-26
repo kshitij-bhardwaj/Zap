@@ -1,87 +1,93 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
-
-module.exports.run = async (bot, message, args) => {
+const resources = require('../../resources.json')
+module.exports={
+    aliases: [],
+    async run(client, message, args) {  
     let user = message.author;
 
     let author = db.fetch(`money_${message.guild.id}_${user.id}`)
 
     let Embed = new Discord.MessageEmbed()
     .setColor(`RED`)
-    .setDescription(`<a:no:791738978180399114> You need ${3500 - author} coins to purchase Bronze VIP`);
+    .setDescription(`${resources['emoji-error']} You need \`Ƶ${750000 - author}\` to purchase Setup 1 from the Gaming Store`);
 
-    if (args[0] == 'bronze') {
-        if (author < 3500) return message.channel.send(Embed)
+    if (args[0] == 'setup1') {
+        if (author < 750000) return message.channel.send(Embed)
         
-        db.fetch(`bronze_${message.guild.id}_${user.id}`);
-        db.set(`bronze_${message.guild.id}_${user.id}`, true)
+        db.fetch(`gaming_setup1_${message.guild.id}_${user.id}`);
+        db.set(`gaming_setup1${message.guild.id}_${user.id}`, true)
 
         let Embed2 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:787883034963476491> Purchased Bronze VIP For 3500 Coins`);
+        .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 1 For \`Ƶ750000\``)
+        .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793423226965458994/GA6f9xF.jpeg`)
+        .setFooter(`Image Source: https://imgur.com/a/t7Npq6s`);
 
-        db.subtract(`money_${message.guild.id}_${user.id}`, 3500)
+        db.subtract(`money_${message.guild.id}_${user.id}`, 750000)
         message.channel.send(Embed2)
-    } 
-    /**else if(args[0] == 'nikes') {
-        let Embed2 = new Discord.MessageEmbed()
-        .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You need ${600 - author} coins to purchase some Nikes`);
-
-        if (author < 600) return message.channel.send(Embed2)
-       
-        db.fetch(`nikes_${message.guild.id}_${user.id}`)
-        db.add(`nikes_${message.guild.id}_${user.id}`, 1)
-
+    } else if(args[0] == 'setup2') {
         let Embed3 = new Discord.MessageEmbed()
-        .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> Purchased Fresh Nikes For 600 Coins`);
-
-        db.subtract(`money_${message.guild.id}_${user.id}`, 600)
-        message.channel.send(Embed3)
-    } else if(args[0] == 'car') {
-        let Embed2 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You need ${800 - author} coins to purchase a new car`);
+        .setDescription(`${resources['emoji-error']} You need \`Ƶ${550000 - author}\` to purchase Setup 2 from the Gaming Store`);
 
-        if (author < 800) return message.channel.send(Embed2)
-       
-        db.fetch(`car_${message.guild.id}_${user.id}`)
-        db.add(`car_${message.guild.id}_${user.id}`, 1)
+        if (author < 550000) return message.channel.send(Embed3)
 
-        let Embed3 = new Discord.MessageEmbed()
+        db.fetch(`gaming_setup2_${message.guild.id}_${user.id}`);
+        db.set(`gaming_setup2_${message.guild.id}_${user.id}`, true)
+
+        let Embed4 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> Purchased a New Car For 800 Coins`);
+        .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 2 For \`Ƶ550000\``)
+        .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793426142324850718/d4EthlX.jpg`)
+        .setFooter(`Image Source: https://i.imgur.com/d4EthlX.jpg`);
 
-        db.subtract(`money_${message.guild.id}_${user.id}`, 800)
-        message.channel.send(Embed3)
-    } else if(args[0] == 'mansion') {
-        let Embed2 = new Discord.MessageEmbed()
+        db.subtract(`money_${message.guild.id}_${user.id}`, 550000)
+        message.channel.send(Embed4)
+    } else if(args[0] == 'setup3') {
+        let Embed5 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription(`<a:no:790889592395792404> You need ${1200 - author} coins to purchase a Mansion`);
+        .setDescription(`${resources['emoji-error']} You need \`Ƶ${300000 - author}\` to purchase Setup 3 from the Gaming Store`);
 
-        if (author < 1200) return message.channel.send(Embed2)
-       
-        db.fetch(`house_${message.guild.id}_${user.id}`)
-        db.add(`house_${message.guild.id}_${user.id}`, 1)
+        if (author < 300000) return message.channel.send(Embed5)
 
-        let Embed3 = new Discord.MessageEmbed()
+        db.fetch(`gaming_setup3_${message.guild.id}_${user.id}`);
+        db.set(`gaming_setup3_${message.guild.id}_${user.id}`, true)
+
+        let Embed6 = new Discord.MessageEmbed()
         .setColor(`GREEN`)
-        .setDescription(`<a:My_best_verified:790894580643397653> Purchased a Mansion For 1200 Coins`);
+        .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 3 For \`Ƶ300000\``)
+        .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793427586466185267/jack-b-B10AxHKLvnQ-unsplash.jpg`)
+        .setFooter(`https://unsplash.com/photos/fewhfXbCUzI`);
 
-        db.subtract(`money_${message.guild.id}_${user.id}`, 1200)
-        message.channel.send(Embed3)
-        */
+        db.subtract(`money_${message.guild.id}_${user.id}`, 300000)
+        message.channel.send(Embed6)
+    } else if(args[0] == 'setup4') {
+        let Embed7 = new Discord.MessageEmbed()
+        .setColor(`RED`)
+        .setDescription(`${resources['emoji-error']} We were kidding. You just need \`Ƶ${5000 - author}\`to purchase this shitty setup from the Gaming Store\n And it seems you don't even have that much.`);
+
+        if (author < 5000) return message.channel.send(Embed7)
+
+        db.fetch(`gaming_setup4_${message.guild.id}_${user.id}`);
+        db.set(`gaming_setup4_${message.guild.id}_${user.id}`, true)
+
+        let Embed8 = new Discord.MessageEmbed()
+        .setColor(`GREEN`)
+        .setDescription(`${resources['emoji-success']} Purchased Gaming Setup 4 For Just \`Ƶ5000\`.\n Yup, we were kidding XD`)
+        .setImage(`https://cdn.discordapp.com/attachments/791589454929330197/793428779917246464/Y55cTVp.jpeg`)
+        .setFooter(`Image Source:https://imgur.com/gallery/mfs51zx`);
+
+        db.subtract(`money_${message.guild.id}_${user.id}`, 5000)
+        message.channel.send(Embed8)
+    }
+       
         else {
         let embed3 = new Discord.MessageEmbed()
         .setColor(`RED`)
-        .setDescription('<a:no:791738978180399114> Enter an item to buy')
+        .setDescription(`${resources['emoji-error']} Enter an item to buy LOL`)
         message.channel.send(embed3)
     }
 
 }
-  
-  module.exports.help = {
-    name:"buy",
-    aliases: [""]
-  }
+}

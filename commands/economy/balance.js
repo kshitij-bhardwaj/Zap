@@ -1,7 +1,10 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
-
-module.exports.run = async (bot, message, args, utils) => {  
+const { run } = require("./ranks");
+const resources = require('../../resources.json')
+module.exports= {
+  aliases: ['bal'],
+  async run(client, message, args){
 
   let user = message.mentions.members.first() || message.author;
 
@@ -14,11 +17,7 @@ module.exports.run = async (bot, message, args, utils) => {
 
   let moneyEmbed = new Discord.MessageEmbed()
   .setColor(`GREEN`)
-  .setDescription(`<a:My_best_verified:787883034963476491>**${user}'s Balance**\n\nWallet: ${bal}\nBank: ${bank}`);
+  .setDescription(`${resources["emoji-success"]} **${user}'s Balance**\n\nWallet: Ƶ${bal}\nBank: Ƶ${bank}`);
   message.channel.send(moneyEmbed)
+  }
 };
-
-module.exports.help = {
-  name:"balance",
-  aliases: ["bal"]
-}

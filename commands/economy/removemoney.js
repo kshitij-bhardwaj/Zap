@@ -1,10 +1,12 @@
   
 const Discord = require("discord.js");
 const db = require("quick.db");
-
-module.exports.run = async (bot, message, args) => { 
+const resources = require('../../resources.json')
+module.exports={
+  aliases: ['rm'],
+  async run(client, message, args) {  
   let ownerID = message.guild.ownerID;
-  if(message.author.id !== ownerID) return;
+  if(message.author.id !== ownerID) return message.channel.send(`You don't have the required Permissions`);
 
   let user = message.mentions.members.first() || message.author;
 
@@ -14,13 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
     let moneyEmbed = new Discord.RichEmbed()
     .setColor(`GREEN`)
-    .setDescription(`<a:My_best_verified:787883034963476491> Removed ${args[1]} coins\n\nNew Balance: ${bal}`);
+    .setDescription(`${resources["emoji-success"]} Removed \`Ƶ${args[1]}\`\n\nNew Balance: ${bal}`);
     message.channel.send(moneyEmbed)
-
+  }
 };
-
-
-module.exports.help = {
-  name:"remove",
-  aliases: ["rm"]
-}
