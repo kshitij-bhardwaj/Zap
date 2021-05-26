@@ -3,7 +3,9 @@ const { Client, MessageEmbed, Message  } = require("discord.js");
 const {  Aki  } = require("aki-api");
 const emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"];
 const Started = new Set();
-module.exports.run = async (bot, message, args) => {
+module.exports={
+  aliases: ['aki'],
+  async run(client, message, args) {  
 let user= message.author;
 if(!Started.has(user.id)) Started.add(user.id);
 else return message.channel.send("**:x: | The game already started..**");
@@ -53,4 +55,4 @@ response.author.id == message.author.id, { max: 1, time: 30000, errors: ["time"]
   
 collector.on("end",()=>{ Started.delete(message.author.id);
                          msg.delete({ timeout: 1000 }).catch(()=>{});
-                       });}   
+                       });}   }

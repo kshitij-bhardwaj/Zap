@@ -1,13 +1,15 @@
 const Discord = require('discord.js');
 const wiki = require("wikijs").default();
 
-module.exports.run = async (client, message, args) => {
+module.exports={
+	aliases: ['wikipedia'],
+	async run(client, message, args) {  
 	let embed = new Discord.MessageEmbed()
 					.setColor(`GREEN`)
 					.setTitle(`Fetching Info... <a:loading:787867865235324928>`)
 					.setDescription(`Please stand by...`)
 					
-	await message.channel.send(embed);
+	let msg = await message.channel.send(embed);
 	let result;
 	let suffix = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
 	suffix = suffix.slice(1).join(' ');
@@ -44,4 +46,10 @@ module.exports.run = async (client, message, args) => {
 						.setURL(result.raw.fullurl)
 						
 	message.channel.send(mainEmbed);
+	let embed1 = new Discord.MessageEmbed()
+					.setColor(`GREEN`)
+					.setTitle(`Here is the Info <a:tick:791208682607870003> `)
+					.setDescription(`We hope you like our service`)
+	msg.edit(embed1);
+}
 };

@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const got = require('got');
 
-module.exports.run = async (bot, message, args) => {
+module.exports={
+	aliases: ['whs'],
+	async run(client, message, args) {  
 	const embed = new Discord.MessageEmbed();
 	got('https://www.reddit.com/r/wholesomememes/random/.json')
 		.then(response => {
@@ -19,16 +21,10 @@ module.exports.run = async (bot, message, args) => {
 			embed.setURL(`${memeUrl}`);
 			embed.setColor('RANDOM');
 			embed.setImage(memeImage);
-			embed.addField('Stats',`<a:thumbsupParrot:790510205502619678> ${memeUpvotes} <a:speech_bubble_heart:790510910266671114> ${memeNumComments}`,false);
+			embed.addField('Stats',`<:ThumbsupNitronix:792415417485754388> ${memeUpvotes} <:SpeechBubble:792414071017177142> ${memeNumComments}`,false);
 
 			message.channel.send(embed);
 		})
 		.catch(console.error);
+	}
 };
-
-exports.help = {
-    type: "fun",
-    name: "wholesome",
-    description: "Generates a random meme from r/wholesome",
-    usage: "zap wholesome",
-}

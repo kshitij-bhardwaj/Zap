@@ -3,7 +3,7 @@ const answers = [
   'It is certain.',
   'It is decidedly so.',
   'Without a doubt.',
-  'Yes - definitely.',
+  'Yes, definitely.',
   'You may rely on it.',
   'As I see it, yes.',
   'Most likely.',
@@ -19,7 +19,10 @@ const answers = [
   'My reply is no.',
   'My sources say no.',
   'Outlook not so good.',
-  'Very doubtful.'
+  'Very doubtful.',
+  'It does not matter.',
+  'Think again.',
+  'Connection to the heavens, Lost.'
 ];
 module.exports.run= (client, message, args) => {
     const question = args.join(' ');
