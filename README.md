@@ -18,7 +18,7 @@
 ## [Table of Contents]()
 <br>
 
-### [ Economy](#Economy)
+### [1. Economy](#Economy)
 ### [2. Fun](#Fun)
 ### [3. Image](#Image)
 ### [4. Music](#Music)
