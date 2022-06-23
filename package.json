@@ -30,7 +30,7 @@
     "dotenv": "^10.0.0",
     "ffmpeg-static": "^4.2.7",
     "fs": "0.0.1-security",
-    "got": "^11.8.1",
+    "got": "^11.8.5",
     "html-entities": "^1.4.0",
     "join": "^3.0.0",
     "node-superfetch": "^0.1.10",
