@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/kshitij-bhardwaj/Zap#readme",
   "dependencies": {
-    "@discordjs/opus": "^0.3.3",
+    "@discordjs/opus": "^0.8.0",
     "aki-api": "^5.2.1",
     "alexa-bot-api": "^0.2.1",
     "canvas": "^2.6.1",
